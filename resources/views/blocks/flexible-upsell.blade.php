@@ -1,0 +1,71 @@
+@layouts('upsell_section')
+<div class="m-auto justify-center mt-10 max-w-contentwidth ">
+    @if(is_page_template( 'template-upsell_steps.blade.php' ) )
+        @layout('text_content')
+            @sub('text')
+        @endlayout
+        @layout('main_headline')
+            @sub('heading')
+        @endlayout
+        @layout('subheading')
+            @sub('subheading')
+        @endlayout
+        @layout('image')
+            <img class="my-8 mx-auto" src="@sub('image', 'url')" alt="">
+        @endlayout
+        @layout('dashed_box')
+            <div class="border-dashed border-2 border-darkOrange rounded p-4 sm:p-8">
+                @layouts('box_section')
+                    @layout('main_headline')
+                        @sub('heading')
+                    @endlayout
+                    @layout('subheading')
+                        @sub('subheading')
+                    @endlayout
+                    @layout('box_image')
+                        <img class="my-8 mx-auto" src="@sub('image', 'url')" alt="">
+                    @endlayout
+                    @layout('moving_button')
+                        @include('partials.button-buy-inside')
+                    @endlayout
+                    @layout('text_content')
+                        @sub('text')
+                    @endlayout
+                @endlayouts
+            </div>
+        @endlayout
+        @layout('no_thanks_button')
+            @include('partials.no-thanks-button')
+        @endlayout
+        @layout('guarantee_section')
+            @include('partials.guarantee-upsell')
+        @endlayout
+    </div>
+    @else
+        @layout('main_headline')
+            @sub('heading')
+        @endlayout
+        @layout('subheading')
+            @sub('subheading')
+        @endlayout
+        @layout('text_content')
+            @sub('text')
+        @endlayout
+        @layout('image')
+            <img class="my-8 mx-auto" src="@sub('image', 'url')" alt="">
+        @endlayout
+        @layout('no_thanks_button')
+            @include('partials.no-thanks-button')
+        @endlayout
+        @layout('yellow_box')
+            @include('sections.yellow-box')
+        @endlayout
+        @layout('green_box')
+            @include('partials.green-box-upsell')
+        @endlayout
+        @layout('testimonials')
+            @include('partials.testimonials')
+        @endlayout
+    @endif
+</div>
+@endlayouts

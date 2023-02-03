@@ -1,7 +1,6 @@
 
 <?php     
-// $bonuses = get_sub_field('choose_bonuses');
-$bonuses = get_field('bonuses');
+$bonuses = get_sub_field('choose_bonuses');
     if( $bonuses ): ?>
     <div class="max-w-contentwidth flex flex-col w-full content ">
         <?php 

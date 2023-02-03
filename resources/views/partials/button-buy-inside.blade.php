@@ -59,18 +59,18 @@
 
   <button id="moving-buy-button" class="relative block  w-1/2 text-center cursor-pointer animate-rocking mt-4" onclick="toggleModal('modal-id')">
       <!-- black background shadow -->
-      <div class="relative  bottom-6  bg-greenColor border-1 border-black rounded-[3px]">
+      <div class="relative  bottom-6  bg-greenColor border-1 border-black rounded-full">
       <!-- text -->
-      <div class=" drop-shadow-lg relative text-xl font-semibold leading-none py-2 px-4 md:py-2 md:px-20 bg-greenColor border-b-4
-      border-black rounded-[3px] transform  hover:transition hover:duration-200 hover:ease-in-out hover:border-b-0 hover:bg-hover">
+      <div class=" drop-shadow-lg relative text-xl font-semibold leading-none p-4 md:py-4 md:px-20 bg-greenColor border-b-4
+      border-black rounded-full transform  hover:transition hover:duration-200 hover:ease-in-out hover:border-b-0 hover:bg-hover">
       <?php
         $post_object = get_field('selected_product');
         $price = get_post_meta( $post_object -> ID, '_regular_price', true);
         $price_sales = get_post_meta( $post_object -> ID, '_sale_price', true);?>
         <div class="flex flex-col md:flex-row items-center">
             <div class="flex flex-row">
-            <div class='md:text-3xl text-xl mr-2 ml-2 font-semibold !no-underline uppercase text-white'>{!!$movingButtonText!!}</div>
-                <img class="h-5 md:h-6 mt-1 md:mt-2" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/arrow-right.png' )); ?>"></img>
+               <div class='md:text-3xl text-xl mr-2 ml-2 font-semibold !no-underline uppercase text-white'>@sub('moving_button_text')</div>
+                <img class="h-6 mt-1" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/arrow-right.png' )); ?>"></img>
             </div>
         </div>
       </div>

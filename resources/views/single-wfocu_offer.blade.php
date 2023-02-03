@@ -18,23 +18,9 @@ $link="?wfocu-accept-link=yes"
 @endif
 <section class="container max-w-contentwidth m-auto w-full">
 
-@include('partials.content-upsell')
+@include('blocks.flexible-upsell')
 
-@php
-$titleRumen=$titleYellowBox;
-$subtitleRumen=$subtitleYellowBox;
-$textRumen=$textYellowBox;
-$imageRumen=$imageYellowBox;
-@endphp
-
-@include('sections.yellow-box')
-@include('partials.content-second-upsell')
-@include('partials.green-box-upsell')
-@include('sections.testimonial-section')
-@include('partials.green-box-upsell')
 
 </section>
-<?php if(get_field('toggle_box_content')): ?>
-@include('sections.self-sorting_upsell')
-<?php endif;?> 
+
 @endsection

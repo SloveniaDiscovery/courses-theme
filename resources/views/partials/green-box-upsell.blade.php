@@ -1,4 +1,3 @@
-@if($greenBoxTitle)
 <section class=" mx-auto flex justify-center mt-10 max-w-contentwidth mb-10">
     <div class=" border-dashed border-2 border-green-600 rounded p-4 sm:p-8 bg-green-100">
         <div class="mb-10 font-bold text-2xl text-black">{{$greenBoxTitle}}</div>
@@ -49,14 +48,12 @@
             </button>
         </a>
         <div class="w-full text-center">
-             <!-- <a href="?wfocu-reject-link=yes" class="mt-6 hover:!no-underline !underline text-black">
+             <a href="?wfocu-reject-link=yes" class="mt-6 hover:!no-underline !underline text-black">
                 @sub('no_thanks_green_box') 
-             </a> -->
-             <a href="?wfocu-reject-link=yes" class="mt-6 hover:!no-underline !underline text-black">{{$greenBoxNoThanks}} </a>
+             </a>
         </div>
         
 
     </div>
     
 </section>
-@endif

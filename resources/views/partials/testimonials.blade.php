@@ -1,7 +1,7 @@
 <section class="mx-auto max-w-contentwidth">
     <div class="mt-12">
     <?php
-        $testimonials = get_field('testimonials');
+        $testimonials = get_sub_field('testimonials');
         if( $testimonials ): ?>
         @if(get_post_type() === 'wffn_landing' || get_post_type() === 'wfocu_offer' || get_post_type() === 'page')
         <div class=" md:gap-4 md:columns-2 columns-1 gap-2">

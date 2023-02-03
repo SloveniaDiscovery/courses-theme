@@ -1,31 +1,49 @@
 @extends('layouts.app')
 @include('sections.top-bar-sales-white')
+
+
 <section class="max-w-pageWidth m-auto md:mt-10">
     <div class="flex flex-wrap">
         <div id="div-included" class="w-full md:!w-1/2 p-2">
-            <div class="shadow rounded p-4 bg-white">
-                <h1 id="product-name"class="!text-3xl">{{$productNameCheckout}}</h1>
-                <img class="mb-4 mt-4" src="{{$productImageCheckout}}"></img>
-                <div class="flex justify-center text-base">
+            <div class="shadow rounded p-4 md:p-8 bg-white">
+            @layouts('checkout_section')
+            @layout('product_info')
+                <h1 id="product-name"class="!text-3xl">
+                    @sub('product_title')
+                </h1>
+                <img class="mb-4 mt-4" src="@sub('product_image', 'url')"></img>
+                <div class="flex justify-center">
                     @include('partials.expert-informations')
                 </div>
-                <div id="what-you-get-checkout bg-white" class="product-perks mt-8">{!! $whatYouGetCheckout !!}</div>
+                <div id="what-you-get-checkout" class="mt-8">
+                    @sub('product_perks')
+                </div>
+            @endlayout
+            @endlayouts
             </div>
-            <div class="product-checkout-choose mobile mt-4 p-4 sm:p-0 bg-white"></div>
-            <div id="shortcode-mini-cart" class="p-4 sm:p-0 bg-white relative shadow md:!block rounded mt-4">
+            <div class="product-checkout-choose mobile mt-4 p-4 bg-white"></div>
+            <div id="shortcode-mini-cart" class="bg-white relative shadow md:!block rounded p-4 mt-4">
                 <?php $form_shortcode = "[wfacp_mini_cart]"; echo do_shortcode($form_shortcode)?>
             </div>
-            <div id="testimonial" class="checkout-testimonials -mt-8">
+            <div id="testimonial" class="mt-4">
+            @layouts('checkout_section')
+            @layout('testimonials')
                 @include('partials.testimonials')
+            @endlayout
+            @endlayouts
             </div>
+            @layouts('checkout_section')
+            @layout('review_images')
             <div id="image-reviews">
-                @include('partials.checkout-review-images')
+                @include('blocks.flexible-checkout')
             </div>
+            @endlayout
+            @endlayouts
         </div>
         <div class="md:!w-1/2 w-full p-2 ">
             <div id="checkout-timer" class="bg-black text-white p-4 flex items-center mb-4 mt-4 sm:mt-0 ">Your order is reserved for: @include('partials.countdown-checkout')
             </div>
-            <div class="product-checkout-choose desktop mt-4 py-4 bg-white"></div>
+            <div class="product-checkout-choose desktop mt-4 p-4 bg-white"></div>
             <div id="shortcode-checkout">
                 @php(the_content())
             </div>
@@ -61,15 +79,14 @@
             </div>  
         </div>
     </div>
-
 <div id="faq" class=" w-full md:w-3/5 m-auto mt-20 mb-20 p-4">
-    @include('partials.faq')   
+    @include('blocks.faq-blocks')
 </div>
 </section>
+
 <script>
 $(document).ready(function() {
     $("#fast-delivery").insertBefore("#payment");
-
     $("#wfacp_mini_cart_reviews_wfacp_form_summary_shortcode").insertAfter("#wfacp_mini_cart_items_wfacp_form_summary_shortcode");
     $(".wfacp-order-summary-label").text("Order Summary");
     // $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertBefore("#wc-stripe-payment-request-wrapper");
@@ -96,23 +113,25 @@ $(document.body).on('updated_checkout', function () {
     $(".wfacp-order-summary-label").text("Order Summary");
   
 });
+
 if ($(window).width() < 768) {
         $("#checkout-timer").insertBefore(".product-checkout-choose.mobile");
         $("#testimonial").insertBefore("#faq");
     
 		/* PRESTAVI GOOGLE/APPLE PAY POD MINI CART < 768PX */
-        $("#wc-stripe-payment-request-wrapper").insertAfter(".wfob_bump_wrapper woocommerce_before_checkout_form");
+        $("#wc-stripe-payment-request-wrapper").insertAfter("#shortcode-mini-cart");
         $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
-	    /* PRESTAVI BUMPE NAD MINI CART < 768PX */
+	    /* PRESTAVI BUMPE POD MINI CART < 768PX */
         // $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertAfter(".wfacp_form_cart");
-        $(".wfob_bump_wrapper woocommerce_before_checkout_form").insertAfter("#shortcode-mini-cart");
-        $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertAfter("#shortcode-mini-cart");
-	 
+      //  $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertAfter("#shortcode-mini-cart");
+        $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertBefore("#wc-stripe-payment-request-wrapper");
 	 	/* ODSTRANI VSE BUMP WRAPPERJE RAZEN ENEGA - DA SE NE PODVAJAJO */
         $('.wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway').slice(1).remove();
 	    
            /** IMAGE REVIEWS, LOGOS ON MOBILE BEFORE ORDER SUMMARY */
         $("#image-reviews").insertBefore("#testimonial");
+
+
  
   
 	}
@@ -120,10 +139,11 @@ if ($(window).width() < 768) {
 else if ($(window).width() > 767) {
         
         /* PRESTAVI GOOGLE/APPLE PAY POD BUY BUTTON > 767PX */
-		$("#wc-stripe-payment-request-wrapper").insertAfter(".wfob_bump_wrapper.woocommerce_before_checkout_form");
+		$("#wc-stripe-payment-request-wrapper").insertBefore(".wfacp-section.wfacp-hg-by-box.step_0.form_section_single_step_0_embed_forms_2");
         $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
         $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertAfter(".wc_payment_methods");
         $('.wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway').slice(1).remove();
+
 	}
     $(document).ready(function() {
         $(window).resize(function() {
@@ -131,17 +151,21 @@ else if ($(window).width() > 767) {
         $("#checkout-timer").insertBefore("#product-name");
         $("#testimonial").insertBefore("#faq");
 		/* PRESTAVI GOOGLE/APPLE PAY POD MINI CART < 768PX */
-        $("#wc-stripe-payment-request-wrapper").insertAfter(".wfob_bump_wrapper woocommerce_before_checkout_form");
+        $("#wc-stripe-payment-request-wrapper").insertAfter("#shortcode-mini-cart");
         $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
+
 		/* PRESTAVI BUMPE NAD MINI CART < 768PX */
         // $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertAfter(".wfacp_form_cart");
-        $(".wfob_bump_wrapper woocommerce_before_checkout_form").insertAfter("#shortcode-mini-cart");
-        	 	/* ODSTRANI VSE BUMP WRAPPERJE RAZEN ENEGA - DA SE NE PODVAJAJO */
-        $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertAfter("#shortcode-mini-cart");
-	 	/* ODSTRANI VSE BUMP WRAPPERJE RAZEN ENEGA - DA SE NE PODVAJAJO */
+        // $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertAfter("#shortcode-mini-cart");
+        $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertBefore("#wc-stripe-payment-request-wrapper");	 	
+        
+        /* ODSTRANI VSE BUMP WRAPPERJE RAZEN ENEGA - DA SE NE PODVAJAJO */
         $('.wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway').slice(1).remove();
+
          /** IMAGE REVIEWS, LOGOS ON MOBILE BEFORE ORDER SUMMARY */
          $("#image-reviews").insertBefore("#testimonial");
+
+
             if($('.wfacp_product_switcher_container').length) {
                 $(".product-checkout-choose.mobile").show();
                 $(".product-checkout-choose.mobile").html($(".wfacp_product_switcher.wfacp_product_switcher"));
@@ -151,10 +175,11 @@ else if ($(window).width() > 767) {
 	}
 	
 	else if ($(window).width() > 767) {
-        $("#checkout-timer").insertBefore(".product-checkout-choose.desktop");
+        $("#checkout-timer").insertBefore(".wfacp-section.wfacp-hg-by-box.step_0.form_section_single_step_0_embed_forms_2");
         $("#testimonial").insertAfter("#shortcode-mini-cart");
+
 		/* PRESTAVI GOOGLE/APPLE PAY POD BUY BUTTON > 767PX */
-		$("#wc-stripe-payment-request-wrapper").insertAfter(".wfob_bump_wrapper woocommerce_before_checkout_form");
+		$("#wc-stripe-payment-request-wrapper").insertBefore(".wfacp-section.wfacp-hg-by-box.step_0.form_section_single_step_0_embed_forms_2");
         $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
 		
 		/* PRESTAVI BUMPE POD TIMER > 767PX */
@@ -163,6 +188,8 @@ else if ($(window).width() > 767) {
 		
 		/* ODSTRANI VSE BUMP WRAPPERJE RAZEN ENEGA - DA SE NE PODVAJAJO */
 		$('.wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway').slice(1).remove();
+
+
            
             if($('.wfacp_product_switcher_container').length) {
                 $(".product-checkout-choose.desktop").show();
@@ -173,6 +200,7 @@ else if ($(window).width() > 767) {
 	}
   });
 })
+
 </script>
 @include('sections.before-footer')
 @include('sections.bottom-footer')
