@@ -11,7 +11,7 @@ $args = array(
 // query
 $post_objects = new WP_Query( $args );
 ?>
-<div class=" grid-cols-1 md:!grid-cols-3 gap-4 grid w-full">
+<div class="grid-cols-1 sm:grid-cols-2 lg:!grid-cols-3 gap-4 grid w-full">
 
 <?php if( $post_objects->have_posts() ): ?>
     <?php while( $post_objects->have_posts() ) : $post_objects->the_post(); ?>
@@ -25,7 +25,7 @@ $post_objects = new WP_Query( $args );
                     <?php the_content() ?>
                     <div class="flex justify-end">
                         <a href="<?php the_permalink(); ?>" class="bg-darkOrange hover:bg-hoverOrange text-white font-semibold py-[9px] pr-[12px] pl-[20px] text-base rounded-[3px] flex">
-                            {{$productCardButton}}
+                            @sub('button_text')
                             <img class="h-6" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/arrow-small-right-white.svg' )); ?>"></img>
                         </a>
                     </div>

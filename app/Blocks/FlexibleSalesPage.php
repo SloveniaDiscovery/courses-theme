@@ -57,7 +57,15 @@ class FlexibleSalesPage extends Block {
         $content
             ->setLocation('post_type', '==', 'wffn_landing')
             ->addFlexibleContent('salespage_sections')
-                ->addLayout('top_bar')
+                ->addLayout('top_bar_to_midnight')
+                    ->addText('top_bar_text')
+                    ->addText('top_bar_button_text')
+                ->addLayout('top_bar_to_date')
+                    ->addDateTimePicker('timer', [
+                        'label' => 'Choose date for top bar timer',
+                        'date_format' => 'd/m/y',
+                        'display_format' => 'd/m/y',
+                    ])
                     ->addText('top_bar_text')
                     ->addText('top_bar_button_text')
                 ->addLayout('text_with_background')

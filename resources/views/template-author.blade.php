@@ -15,19 +15,7 @@
     </div>
 </section>
 
-@include('sections.author-content')
+@include('blocks.flexible-page')
 
-<section class="flex w-full h-auto md:h-[60vh] items-start flex-col md:flex-row">
-  <div class="w-full md:w-1/2 flex justify-end items-center h-[45vh] relative">
-    <img class="h-[35vh] md:h-full md:mr-16 m-auto z-10" src="{{$authorEbookImage}}"></img>
-    <div class="absolute bg-lightOrange w-full h-[40vh] z-o"></div>
-  </div>
-  <div class="w-full md:w-1/2 xl:w-1/3 h-full p-4 md:p-0 md:pl-10">
-    {!! $authorEbookContent !!}
-    <img class="w-44 mb-4" src="{{$authorSignature}}"></img>
-    <?php $form_shortcode = $formShortcodeHome; echo do_shortcode($form_shortcode)?>
-  </div>
-
-</section>
 
 @include('sections.footer')

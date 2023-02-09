@@ -15,7 +15,7 @@ $link="?wfocu-accept-link=yes"
 
 @include('sections.upsell-progress-2nd')
 
-<section class="container m-auto upsell-box">
+<section class="container upsell-box">
 
   @include('blocks.flexible-upsell')
 

@@ -2544,9 +2544,16 @@ body.wfacpef_page
 /* AUTHOR PAGE */
 .headline-h2-author-page {
   font-weight: 600;
-  font-size: 48px;
+  font-size: 40px;
+  line-height: 48px;
   margin-top: 42px;
   color: #131313;
+}
+@media(max-width: 767px) {
+  .headline-h2-author-page {
+    font-size: 24px;
+    line-height: 1.2;
+  }
 }
 .arrow-r-author:before {
   content: "";
@@ -2654,7 +2661,7 @@ body.wfacpef_page
 }
 @media(max-width: 767px) {
   .headline-red {
-    font-size: 32px;
+    font-size: 24px;
   }
 }
 .paragraph-red {
@@ -2718,35 +2725,32 @@ body.wfacpef_page
   margin-left:36px !important;
 
 }
-.upsell-boxes-content ul li span {
+.upsell-boxes-content > ul > li > span {
   font-size: 16px;
-
-}
-.upsell-boxes-content ul li {
-  margin-top: 5px !important;
+  margin-top: 3px !important;
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-.infinity-bullet:before {
-  content: url("./resources/assets/images/infinity-emoji.svg");
-  width: 14px;
-  display: inline-flex;
+li:has(> .infinity-bullet)::before  {
+  background-image: url("./resources/assets/images/infinity-emoji.svg");
+  content: " ";
+  height: 20px;
+  width: 21px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: text-bottom;
+  background-size: cover;
+  margin: 0 8px 0 -15px;
 }
-.gift-bullet:before {
-  content: url("./resources/assets/images/gift-emoji.svg");
-  width: 14px;
-  display: inline-flex;
+li:has(> .gift-bullet)::before {
+  background-image: url("./resources/assets/images/gift-emoji.svg");
+  content: " ";
+  height: 25px;
+  width: 26px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: text-bottom;
+  background-size: cover;
+  margin: 0 5px 0 -17px;
 }

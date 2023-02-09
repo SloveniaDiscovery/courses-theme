@@ -1,5 +1,5 @@
 @layouts('upsell_section')
-<div class="m-auto justify-center mt-10 max-w-contentwidth ">
+<div class="max-w-contentwidth m-auto">
     @if(is_page_template( 'template-upsell_steps.blade.php' ) )
         @layout('text_content')
             @sub('text')
@@ -14,25 +14,7 @@
             <img class="my-8 mx-auto" src="@sub('image', 'url')" alt="">
         @endlayout
         @layout('dashed_box')
-            <div class="border-dashed border-2 border-darkOrange rounded p-4 sm:p-8">
-                @layouts('box_section')
-                    @layout('main_headline')
-                        @sub('heading')
-                    @endlayout
-                    @layout('subheading')
-                        @sub('subheading')
-                    @endlayout
-                    @layout('box_image')
-                        <img class="my-8 mx-auto" src="@sub('image', 'url')" alt="">
-                    @endlayout
-                    @layout('moving_button')
-                        @include('partials.button-buy-inside')
-                    @endlayout
-                    @layout('text_content')
-                        @sub('text')
-                    @endlayout
-                @endlayouts
-            </div>
+            @include('sections.dashed-box')
         @endlayout
         @layout('no_thanks_button')
             @include('partials.no-thanks-button')
@@ -40,7 +22,7 @@
         @layout('guarantee_section')
             @include('partials.guarantee-upsell')
         @endlayout
-    </div>
+</div>
     @else
         @layout('main_headline')
             @sub('heading')
@@ -67,5 +49,9 @@
             @include('partials.testimonials')
         @endlayout
     @endif
-</div>
+    @layout('product_self_sort')
+        <section class="container mt-12">
+            @include('sections.self-sorting_upsell')
+        </section>
+    @endlayout
 @endlayouts

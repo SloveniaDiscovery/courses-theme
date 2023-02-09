@@ -1,4 +1,4 @@
-<div class="text-xs text-black flex justify-center" x-data x-init="">
+<div class="text-xs text-black flex justify-center upsell-ms-timer" x-data x-init="">
 	<div class="countdown-number-white w-[60px] rounded-lg  border-black border-[1.9px] text-lg">
 		<div  class="font-semibold minutes"></div>
 		<div class="text-xs uppercase font-light">minutes</div>
@@ -33,7 +33,7 @@ var x = setInterval(function() {
   // If the count down is over, write some text 
   if (distance < 0) {
 	  clearInterval(x);
-    $(".upsell-w-timer").hide();
+    $(".upsell-ms-timer").hide();
   }
 }, 1000);
 </script>

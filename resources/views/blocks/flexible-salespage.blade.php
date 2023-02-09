@@ -1,6 +1,9 @@
 @layouts('salespage_sections')
-    @layout('top_bar')
-        @include('sections.top-bar-sales')
+    @layout('top_bar_to_midnight')
+        @include('sections.top-bar-sales')    
+    @endlayout
+    @layout('top_bar_to_date')
+        @include('sections.top-bar-datepick')
     @endlayout
 @endlayouts
 <section class="mx-auto container">

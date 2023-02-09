@@ -1,18 +1,10 @@
 <?php
-// check if the flexible content field has rows of data
-if( have_rows('upsell_self_sort_bundle') ):
- 	// loop through the rows of data
-    while ( have_rows('upsell_self_sort_bundle') ) : the_row();
-		// check current row layout
-        if( get_row_layout() == 'bundle_box' ):
-            $upsell_product = get_sub_field('upsell_bundle_product');
-            $price = get_post_meta( $upsell_product -> ID, '_regular_price', true);
-            $price_sales = get_post_meta( $upsell_product -> ID, '_sale_price', true);
-            $price_total=($price - $price_sales) / $price * 100;
-            $format_number1 = number_format($price_total, 0);
-        endif; 
-    endwhile;
-endif; ?>
+    $post_object = get_sub_field('select_product');
+    $price = get_post_meta( $post_object -> ID, '_regular_price', true);
+    $price_sales = get_post_meta( $post_object -> ID, '_sale_price', true);
+    $price_total=($price - $price_sales) / $price * 100;
+    $format_number1 = number_format($price_total, 0);
+?>
 
 <div class="grid justify-center mt-12 mb-6">
     <div class="text-center text-sm font-semibold">ONE TIME PAYMENT</div>
@@ -45,16 +37,7 @@ endif; ?>
         <div class="flex flex-col items-center">
             <div class="flex flex-row items-center">
             <div class='text-xl mr-2 ml-2 font-semibold !no-underline uppercase text-white'>
-            <?php 
-            if( have_rows('upsell_self_sort_bundle') ):
-                // loop through the rows of data
-               while ( have_rows('upsell_self_sort_bundle') ) : the_row();
-                   // check current row layout
-                    if( get_row_layout() == 'bundle_box' ):    
-                        the_sub_field('upsell_bundle_button') ;
-                    endif; 
-                    endwhile;
-                endif; ?> 
+                @sub('button_text')
             </div>
             <img class="h-4" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/arrow-right.png' )); ?>"></img>
             </div>

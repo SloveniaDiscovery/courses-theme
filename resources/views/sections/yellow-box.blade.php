@@ -7,9 +7,7 @@
             <div class="text-2xl">@sub('sub_heading')</div>
         @endlayout
         @layout('text_with_background')
-            <div class="bg-redColor text-white md:p-2 md:px-10 p-2 mt-6 !mb-6">
-                @sub('text_with_background_color')
-            </div>
+           @include('partials.red-text')
         @endlayout
         @layout('text_content')
             <div class="text-left">@sub('text')</div>

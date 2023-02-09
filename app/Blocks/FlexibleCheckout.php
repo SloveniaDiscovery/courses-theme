@@ -76,7 +76,15 @@ class FlexibleCheckout extends Block {
                             ->addImage('image')
                         ->addLayout('satisfied_customers')
                             ->addImage('customers_image')
-                    ->endFlexibleContent();
+                    ->endFlexibleContent()
+                ->addLayout('guarantee_and_personal_assistance')
+                    ->addPostObject('sales_page', [
+                        'post_type' => 'wffn_landing',
+                        'multiple' => 0,
+                        'return_format' => 'object',
+                        'ui' => 1,
+                    ]);
+                    
 
                    
                     

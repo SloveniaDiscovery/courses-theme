@@ -45,6 +45,7 @@ class FlexibleUpsell extends Block {
             'upsell_section' => $this->upsell_section(),
         ];
     }
+   
 
     /**
      * The block field group.
@@ -112,6 +113,7 @@ class FlexibleUpsell extends Block {
                 ->addLayout('guarantee_section')
                     ->addText('guarantee_text')
                 ->addLayout('green_box')
+                    ->addText('green_box_headline')
                     ->addText('no_thanks_green_box')
                 ->addLayout('testimonials')
                     ->addPostObject('testimonials', [
@@ -119,8 +121,46 @@ class FlexibleUpsell extends Block {
                         'multiple' => 1,
                         'return_format' => 'object',
                         'ui' => 1,
-                    ]);
-                    
+                    ])
+                ->addLayout('product_self_sort')
+                    ->addFlexibleContent('card_section')
+                        ->addLayout('title')
+                            ->addText('title')
+                        ->addLayout('text_block')
+                            ->addWysiwyg('text_block_wysiwyg')
+                        ->addLayout('products_cards')
+                            ->addGroup('left_upsell_card_section', [
+                                'layout' => 'block',
+                            ])
+                                ->addPostObject('select_product', [
+                                    'post_type' => 'product',
+                                    'multiple' => 0,
+                                    'return_format' => 'object',
+                                    'ui' => 1,
+                                ])
+                                ->addText('button_text')
+                                ->addText('promo_text')
+                                ->addText('title')
+                                ->addImage('image')
+                                ->addWysiwyg('text')
+                            ->endGroup()
+                            ->addGroup('right_upsell_card_section', [
+                                'layout' => 'block',
+                            ])
+                                ->addPostObject('select_product', [
+                                    'post_type' => 'product',
+                                    'multiple' => 0,
+                                    'return_format' => 'object',
+                                    'ui' => 1,
+                                ])
+                                ->addText('button_text')
+                                ->addText('promo_text')
+                                ->addText('title')
+                                ->addImage('image')
+                                ->addWysiwyg('text')
+                            ->endGroup();
+                            
+                        
 
         return $content_upsell->build();
     }

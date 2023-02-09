@@ -18,7 +18,7 @@
       </div>
     </div>
 </div>
-<?php $date = get_field('timer'); ?>
+<?php $date = get_sub_field('timer'); ?>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
