@@ -38,9 +38,6 @@ class CustomFields extends Composer
   
             
             /* CHECKOUT PAGE */
-            'productNameCheckout' => $this->productNameCheckout(),  
-            'productImageCheckout' => $this->productImageCheckout(),  
-            'whatYouGetCheckout' => $this->whatYouGetCheckout(),  
             'moneyBackGuaranteeHeadlineCheckout' => $this->moneyBackGuaranteeHeadlineCheckout(),  
             'moneyBackGuaranteeTextCheckout' => $this->moneyBackGuaranteeTextCheckout(),  
             'personalAssistanceHeadlineCheckout' => $this->personalAssistanceHeadlineCheckout(),  
@@ -50,7 +47,6 @@ class CustomFields extends Composer
             'toggleBar1' => $this->toggleBar1(),  
             'toggleBar2' => $this->toggleBar2(),  
             'toggleBar3' => $this->toggleBar3(),  
-          
             'priceIncreaseIn' => $this->priceIncreaseIn(),
             
             /* TESTIMONIALS */
@@ -69,11 +65,7 @@ class CustomFields extends Composer
             'ebookTopBarButton' => $this->ebookTopBarButton(),
             'ebookPageUrl' => $this->ebookPageUrl(),
 
-            /** AUTHOR PAGE */
-       
-            'authorEbookImage' => $this->authorEbookImage(),
-            'authorEbookContent' => $this->authorEbookContent(),
-            'authorSignature' => $this->authorSignature(),
+        
 
            
         ];
@@ -150,17 +142,7 @@ class CustomFields extends Composer
 
 
     /* CHECKOUT PAGE */
-    public function productNameCheckout(){
-        return get_field("product_name_checkout");
-    }
-    public function productImageCheckout(){
-        if(get_field("product_image_checkout")){
-            return get_field("product_image_checkout")['url'];
-        }
-    }
-    public function whatYouGetCheckout(){
-        return get_field("what_you_get_checkout");
-    }
+ 
     public function moneyBackGuaranteeHeadlineCheckout(){
         return get_field("money_back_guarantee_headline_checkout");
     }
@@ -235,34 +217,4 @@ class CustomFields extends Composer
     public function ebookPageUrl(){
         return get_field("ebook_top_bar_button_link");
     }
-
-
-    public function reviewLogosHp(){
-        if(get_field("review_logos_hp")){
-            return get_field("review_logos_hp")['url'];
-        }
-    }
-
-
-    public function authorIntroText(){
-        return get_field("author_intro_text");
-    }
-    public function authorContentText(){
-        return get_field("author_content_text");
-    }
-
-    public function authorEbookImage() {
-        if(get_field("author_ebook_img")){
-            return get_field("author_ebook_img")['url'];
-        }
-    }
-    public function authorEbookContent(){
-        return get_field("author_ebook_content");
-    }
-    public function authorSignature() {
-        if(get_field("author_signature")){
-            return get_field("author_signature")['url'];
-        }
-    }
-
 }

@@ -1,9 +1,7 @@
-<section class="max-w-pageWidth m-auto p-4 mb-12">
+<section class="max-w-pageWidth m-auto p-4 my-12">
 @layouts('thankyou_sections')
-    @layout('headline')
-        <h1 class="mt-20 mb-10 text-4xl font-bold">
-            @sub('headline')
-        </h1>
+    @layout('heading')
+        @sub('heading')
     @endlayout
     @layout('content')
         <div class="my-10">

@@ -1,13 +1,16 @@
-<section class="container w-full pb-6">
-    <div class="max-w-contentwidth m-auto grid grid-cols-3 gap-2 sm:gap-8 mt-4">
-        <div class="step">
-            <div class="text-sm md:text-xl z-10 relative mt-1 text-black rounded-[60px] border border-black">1. Initiate</div>
+<section class="container w-full">
+    <div class="max-w-contentwidth m-auto my-4 text-sm ">
+        <div class="step flex align-center flex-row w-72 m-auto">
+            <div class="rounded-full text-black border border-black font-bold p-2">1</div>
+            <div class="h-1 w-full border-b-2 border-black"></div>
+            <div class="rounded-full text-white bg-darkOrange font-bold">2</div>
+            <div class="h-1 w-full border-b-2 border-black"></div>
+            <div class="rounded-full text-black border border-black font-bold">3</div>
         </div>
-        <div class="step">
-            <div class="text-sm md:text-xl z-10 relative mt-1 rounded-[60px] text-white bg-darkOrange">2. Upgrade</div>
-        </div>
-        <div class="step">
-            <div class="text-sm md:text-xl z-10 relative mt-1 text-black rounded-[60px] border border-black">3. Complete</div>
+        <div class="step flex align-center justify-between m-auto w-[300px]">
+            <div class="z-10 relative mt-1 text-black !p-0 !pl-1">Initiate</div>
+            <div class="text-sm z-10 relative mt-1 text-black !p-0 !pl-2">Upgrade</div>
+            <div class="text-sm z-10 relative mt-1 text-black !p-0 !pl-1">Complete</div>
         </div>
     </div>
 </section>

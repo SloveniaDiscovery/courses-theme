@@ -1,8 +1,6 @@
 <section class=" mx-auto flex justify-center mt-10 max-w-contentwidth mb-10">
     <div class=" border-dashed border-2 border-green-600 rounded p-4 sm:p-8 bg-green-100">
-        <div class="mb-10 font-bold text-2xl text-black">
-            @sub('green_box_headline')
-        </div>
+            @sub('heading')
         <div class="bg-white w-full p-4 mb-10 block text-center font-semibold upsell-w-timer">   
             <div class=" font-semibold mb-4">Price increases in:</div>
             @include('partials.countdown-upsell-alpine')

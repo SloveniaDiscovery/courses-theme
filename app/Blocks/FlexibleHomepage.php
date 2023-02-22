@@ -62,10 +62,11 @@ class FlexibleHomepage extends Block
                     ->addImage('banner_image')
                     ->addText('banner_subtitle')
                     ->addText('banner_title')
-                    ->addWysiwyg('banner_content')
+                    ->addText('banner_short_description')
                     ->addText('banner_form_shortcode')
+                ->addLayout('heading')
+                    ->addWysiwyg('heading')
                 ->addLayout('products_grid')
-                    ->addText('button_text')
                 ->addLayout('shadow_box')
                     ->addImage('box_image')
                     ->addText('text_content')
@@ -76,10 +77,13 @@ class FlexibleHomepage extends Block
                 ->addLayout('button')
                     ->addText('button_text')
                     ->addLink('button_link')
-                ->addLayout('heading_h2')
-                    ->addText('homepage_heading_h2')
                 ->addLayout('image')
-                    ->addImage('homepage_image')
+                    ->addImage('homepage_image', [
+                        'wrapper' => [
+                            'class' => 'acf-image',
+                            'id' => '',
+                        ],
+                    ])
                 ->addLayout('testimonials')
                     ->addPostObject('testimonials', [
                         'post_type' => 'testimonials',
@@ -91,7 +95,7 @@ class FlexibleHomepage extends Block
                     ->addImage('form_image')
                     ->addText('form_subtitle')
                     ->addText('form_title')
-                    ->addWysiwyg('form_content')
+                    ->addText('form_content')
                     ->addText('form_shortcode');
 
         return $content->build();

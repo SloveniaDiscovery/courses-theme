@@ -3,7 +3,7 @@
 // args
 $args = array(
     'posts_per_page'   => -1,
-    'post_type'     => 'wffn_landing',
+    'post_type'     => array('wffn_landing', 'wffn_optin'),
     'category_name' => 'homepage',
 );
 
@@ -25,7 +25,7 @@ $post_objects = new WP_Query( $args );
                     <?php the_content() ?>
                     <div class="flex justify-end">
                         <a href="<?php the_permalink(); ?>" class="bg-darkOrange hover:bg-hoverOrange text-white font-semibold py-[9px] pr-[12px] pl-[20px] text-base rounded-[3px] flex">
-                            @sub('button_text')
+                            MORE
                             <img class="h-6" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/arrow-small-right-white.svg' )); ?>"></img>
                         </a>
                     </div>

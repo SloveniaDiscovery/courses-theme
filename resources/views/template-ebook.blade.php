@@ -5,6 +5,6 @@
 @extends('layouts.app')
 @include('sections.top-bar-sales-white')
 
-@include('partials.ebook-form')
+@include('blocks.flexible-page')
 
 @include('sections.footer')

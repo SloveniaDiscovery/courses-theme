@@ -11,5 +11,5 @@
     </div>
 </section>
 
-@include('sections.testimonial-section')
+@include('blocks.flexible-page')
 

@@ -57,8 +57,8 @@ class FlexibleThankYouPage extends Block {
         $content_thankyou
             ->setLocation('post_type', '==', 'wffn_ty')
             ->addFlexibleContent('thankyou_sections')
-                ->addLayout('headline')
-                    ->addText('headline')
+                ->addLayout('heading')
+                    ->addWysiwyg('heading')
                 ->addLayout('content')
                     ->addWysiwyg('text')
                 ->addLayout('button')

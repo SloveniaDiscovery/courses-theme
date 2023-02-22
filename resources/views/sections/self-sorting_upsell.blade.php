@@ -1,10 +1,8 @@
 
     <div class="max-w-contentwidth mx-auto text-center">
     @layouts('card_section')
-        @layout('title')
-        <h3 class="text-darkerRed font-bold text-3xl uppercase pb-0 pt-4">
-            @sub('title')
-        </h3>
+        @layout('heading')
+            @sub('heading')
         @endlayout
         @layout('text_block')
             <div class="font-semibold py-4 paragraph-no-margin">
@@ -15,7 +13,7 @@
         @include('partials.countdown-upsell-alpine-white')
     </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-4 lg:gap-8 my-12 sm:my-20  max-w-4xl mx-auto ">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-4 lg:gap-8 mt-12 mb-20 sm:mt-20 max-w-4xl mx-auto ">
 @layouts('card_section')
     @layout('products_cards')
     @group('left_upsell_card_section')
@@ -27,9 +25,9 @@
             @endsub
             <div class="border-4 border-text border-t-40 relative">
                 @hassub('title')
-                <h3 class="bg-text p-2 py-4 relative text-white font-semibold uppercase text-center text-2xl">
+                <h4 class="bg-text p-2 py-4 relative text-white font-semibold uppercase text-center text-2xl">
                     @sub('title')
-                </h3>
+                </h4>
                 @endsub
                 <div class="p-2 md:!pl-4 md:!pr-4 upsell-boxes-content">
                     @hassub('image')
@@ -54,9 +52,9 @@
             @endsub
             <div class="border-4 border-darkOrange border-t-40 relative">
                 @hassub('title')
-                <h3 class="bg-darkOrange p-2 py-4 relative text-white font-semibold uppercase text-center text-2xl">
+                <h4 class="bg-darkOrange p-2 py-4 relative text-white font-semibold uppercase text-center text-2xl">
                     @sub('title')
-                </h3>
+                </h4>
                 @endsub
                 <div class="p-2 md:!pl-4 md:!pr-4 upsell-boxes-content bg-white">
                     @hassub('image')

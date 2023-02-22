@@ -161,6 +161,12 @@ function customizer_settings($wp_customize)
 		'transport' => 'refresh',
 
 	));
+	$wp_customize->add_setting('dark_blue_color', array(
+
+		'default'   => '#004580',
+		'transport' => 'refresh',
+
+	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'primary_color', array(
 
@@ -240,14 +246,37 @@ function customizer_settings($wp_customize)
 		'settings'   => 'dark_red_color',
 
 	)));
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'dark_blue_color', array(
+
+		'label'      => 'Dark Blue Color',
+		'section'    => 'colors',
+		'settings'   => 'dark_blue_color',
+
+	)));
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'light_gray_color', array(
+
+		'label'      => 'Light Gray Color',
+		'section'    => 'colors',
+		'settings'   => 'light_gray_color',
+
+	)));
 	$wp_customize->add_section('fonts', array(
 		'title' => 'Fonts',
 		'priority' => 30,
 	));
+	$wp_customize->add_setting('paragraph_small_font', array(
+		'default'     => '16px',
+		'transport'   => 'refresh',
+	));
+
+	$wp_customize->add_control('paragraph_small_font', array(
+		'label'        => 'Paragraph small - Desktop',
+		'section'    => 'fonts',
+		'settings'   => 'paragraph_small_font',
+	));
 
 	$wp_customize->add_setting('font_size', array(
-
-		'default'   => '18px',
+		'default'   => '20px',
 		'transport' => 'refresh',
 
 	));
@@ -256,13 +285,14 @@ function customizer_settings($wp_customize)
 		'section'    => 'fonts',
 		'settings'   => 'font_size',
 	));
+	
 	$wp_customize->add_setting('default_h1_size', array(
-		'default'     => '40px',
+		'default'     => '48px',
 		'transport'   => 'refresh',
 	));
 
 	$wp_customize->add_control('default_h1_size', array(
-		'label'        => 'h1',
+		'label'        => 'Heading 1 - Desktop',
 		'section'    => 'fonts',
 		'settings'   => 'default_h1_size',
 	));
@@ -273,9 +303,92 @@ function customizer_settings($wp_customize)
 	));
 
 	$wp_customize->add_control('default_h2_size', array(
-		'label'        => 'h2',
+		'label'        => 'H2 - Desktop',
 		'section'    => 'fonts',
 		'settings'   => 'default_h2_size',
+	));
+	$wp_customize->add_control('default_h2_size', array(
+		'label'        => 'H2 - Small screen',
+		'section'    => 'fonts',
+		'settings'   => 'default_h2_mob_size',
+	));
+	$wp_customize->add_setting('default_subheadingh2_size', array(
+		'default'     => '24px',
+		'transport'   => 'refresh',
+	));
+
+	$wp_customize->add_setting('default_h3_size', array(
+		'default'     => '32px',
+		'transport'   => 'refresh',
+	));
+
+	$wp_customize->add_control('default_h3_size', array(
+		'label'        => 'H3 - Desktop',
+		'section'    => 'fonts',
+		'settings'   => 'default_h3_size',
+	));
+
+	$wp_customize->add_setting('mob_paragraph_small_font', array(
+		'default'     => '14px',
+		'transport'   => 'refresh',
+	));
+
+	$wp_customize->add_control('mob_paragraph_small_font', array(
+		'label'        => 'Paragraph small - Small screen',
+		'section'    => 'fonts',
+		'settings'   => 'mob_paragraph_small_font',
+	));
+	$wp_customize->add_setting('mob_default_font_size', array(
+		'default'   => '16px',
+		'transport' => 'refresh',
+
+	));
+	$wp_customize->add_control('mob_default_font_size', array(
+		'label'        => 'Default Font Size - Small screen',
+		'section'    => 'fonts',
+		'settings'   => 'mob_default_font_size',
+	));
+	
+	$wp_customize->add_setting('default_h1_mob_size', array(
+		'default'     => '32px',
+		'transport'   => 'refresh',
+	));
+
+	$wp_customize->add_control('default_h1_mob_size', array(
+		'label'        => 'H1 - Small screen',
+		'section'    => 'fonts',
+		'settings'   => 'default_h1_mob_size',
+	));
+
+	$wp_customize->add_setting('default_h2_mob_size', array(
+		'default'     => '24px',
+		'transport'   => 'refresh',
+	));
+
+	$wp_customize->add_control('default_h2_mob_size', array(
+		'label'        => 'H2 - Small screen',
+		'section'    => 'fonts',
+		'settings'   => 'default_h2_mob_size',
+	));
+	$wp_customize->add_setting('default_subheadingh2_mob_size', array(
+		'default'     => '20px',
+		'transport'   => 'refresh',
+	));
+
+	$wp_customize->add_control('default_subheadingh2_mob_size', array(
+		'label'        => 'Subheading H2 - Small screen',
+		'section'    => 'fonts',
+		'settings'   => 'default_subheadingh2_mob_size',
+	));
+	$wp_customize->add_setting('default_h3_mob_size', array(
+		'default'     => '20px',
+		'transport'   => 'refresh',
+	));
+
+	$wp_customize->add_control('default_h3_mob_size', array(
+		'label'        => 'H3 - Small screen',
+		'section'    => 'fonts',
+		'settings'   => 'default_h3_mob_size',
 	));
 	$wp_customize->add_setting('font_family', array(
 
@@ -348,12 +461,23 @@ function cd_customizer_css()
 			--lightOrange: <?php echo get_theme_mod('light_orange', '#fff9f4'); ?>;
 			--darkOrange: <?php echo get_theme_mod('dark_orange', '#ff8f00'); ?>;
 			--darkerRed: <?php echo get_theme_mod('dark_red', '#d20000'); ?>;
+			--darkerBlue: <?php echo get_theme_mod('dark_blue_color', '#004580'); ?>;
+			--lightGray: <?php echo get_theme_mod('light_gray_color', '#E5E5E5'); ?>;
 			--hover: <?php echo get_theme_mod('hover_color', '#e08107'); ?>;
 			--hoverOrange: <?php echo get_theme_mod('hover_orange_color', '#e08107'); ?>;
+			--default-small-p-size: <?php echo get_theme_mod('paragraph_small_font', '16px'); ?>;
 			--default-font-size: <?php echo get_theme_mod('font_size', '20px'); ?>;
 			--default-font-family: <?php echo get_theme_mod('font_family', 'barlow'); ?>;
-			--default-h1-size: <?php echo get_theme_mod('default_h1_size', '40px'); ?>;
+			--default-h1-size: <?php echo get_theme_mod('default_h1_size', '48px'); ?>;
 			--default-h2-size: <?php echo get_theme_mod('default_h2_size', '40px'); ?>;
+			--default-subheadingh2-size: <?php echo get_theme_mod('default_subheadingh2_size', '24px'); ?>;
+			--default-h3-size: <?php echo get_theme_mod('default_h3_size', '32px'); ?>;
+			--mob-small-p-size: <?php echo get_theme_mod('mob_paragraph_small_font', '14px'); ?>;
+			--mob-default-font-size: <?php echo get_theme_mod('mob_default_font_size', '16px'); ?>;
+			--h1-mob-size: <?php echo get_theme_mod('default_h1_mob_size', '32px'); ?>;
+			--h2-mob-size: <?php echo get_theme_mod('default_h2_mob_size', '24px'); ?>;
+			--subheadingh2-mob-size: <?php echo get_theme_mod('default_subheadingh2_mob_size', '20px'); ?>;
+			--h3-mob-size: <?php echo get_theme_mod('default_h3_mob_size', '20px'); ?>;
 			--border-radius: <?php echo get_theme_mod('border_radius', '2px'); ?>;
 			--border-width: <?php echo get_theme_mod('border_width', '1px'); ?>;
 			--border-color: <?php echo get_theme_mod('border_color', '#f2f2f2'); ?>;
@@ -500,403 +624,12 @@ function my_acf_add_local_field_groups() {
 		'title' => 'Sales Pages',
 		'fields' => array(
 			array(
-                'key' => 'field_1',
-                'label' => 'Display/hide Top Heading',
-                'name' => 'toggle_top_heading',
-                'type' => 'true_false',
-                'default_value' => 1,
-                'ui' => 1,
-                'ui_on_text' => 'Display',
-                'ui_off_text' => 'Hide',
-            ),
-			array(
-				'key' => 'field_1_1_0_1',
-				'label' => 'Top Heading',
-				'name' => 'top_heading',
-				'type' => 'text',
-			),
-			array(
-                'key' => 'field_1_1',
-                'label' => 'Display/hide Heading',
-                'name' => 'toggle_headline_h1',
-                'type' => 'true_false',
-                'default_value' => 1,
-                'ui' => 1,
-                'ui_on_text' => 'Display',
-                'ui_off_text' => 'Hide',
-            ),
-			array(
-				'key' => 'field_1_1_0',
-				'label' => 'Heading',
-				'name' => 'main_heading',
-				'type' => 'wysiwyg',
-			),
-			array(
-                'key' => 'field_1_2_0',
-                'label' => 'Display/hide Subheading',
-                'name' => 'toggle_headline_h2',
-                'type' => 'true_false',
-                'default_value' => 1,
-                'ui' => 1,
-                'ui_on_text' => 'Display',
-                'ui_off_text' => 'Hide',
-            ),
-			array(
-				'key' => 'field_1_2',
-				'label' => 'Subheading',
-				'name' => 'subheading',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_3_0',
-				'label' => 'Product main image',
-				'name' => 'product_main_image',
-				'type' => 'image',
-			),
-			array(
-				'key' => 'field_1_7',
-				'label' => 'Product title',
-				'name' => 'product_title',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_7_1',
-				'label' => 'Badge text',
-				'name' => 'badge_text',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_8',
-				'label' => 'Product includes',
-				'name' => 'product_includes',
-				'type' => 'wysiwyg',
-			),
-			array(
 				'key' => 'field_1_9',
 				'label' => 'Selected product',
 				'name' => 'selected_product',
 				'type' => 'post_object',
 				'post_type' => 'product',
 				'return_format' => 'object',
-			),
-
-			array(
-				'key' => 'field_1_12',
-				'label' => 'Form shortcode',
-				'name' => 'form_shortcode',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_12_1',
-				'label' => 'Form shortcode modal',
-				'name' => 'form_shortcode_modal',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_12_2',
-				'label' => 'Modal text',
-				'name' => 'modal_text',
-				'type' => 'text',
-			),
-			array(
-                'key' => 'field_1_3_1',
-                'label' => 'Display/hide Before First content',
-                'name' => 'toggle_before_first_content',
-                'type' => 'true_false',
-                'default_value' => 1,
-                'ui' => 1,
-                'ui_on_text' => 'Display',
-                'ui_off_text' => 'Hide',
-            ),
-			array(
-				'key' => 'field_1_13_0',
-				'label' => 'Before First content',
-				'name' => 'before_first_content',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_13_0_2',
-				'label' => 'Testimonials',
-				'name' => 'testimonials_no_heading',
-				'type' => 'post_object',
-				'multiple' => True,
-				'post_type' => 'testimonials',
-			),
-			array(
-				'key' => 'field_1_13_0_3',
-				'label' => 'After Testimonials',
-				'name' => 'after_testimonials',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_13',
-				'label' => 'First content',
-				'name' => 'first_content',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_13_1',
-				'label' => 'Second content',
-				'name' => 'second_content',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_13_11',
-				'label' => 'Display yellow box 1',
-				'name' => 'display_yellow_1',
-				'type' => 'true_false',
-				'default_value' => 1,
-				'ui' => 1,
-				'ui_on_text' => 'Display',
-				'ui_off_text' => 'Hide',
-			),
-			array(
-				'key' => 'field_1_13_12',
-				'label' => 'Display yellow box 2',
-				'name' => 'display_yellow_2',
-				'type' => 'true_false',
-				'default_value' => 0,
-				'ui' => 1,
-				'ui_on_text' => 'Display',
-				'ui_off_text' => 'Hide',
-			),
-			array(
-				'key' => 'field_1_13_13',
-				'label' => 'Display yellow box 3',
-				'name' => 'display_yellow_3',
-				'type' => 'true_false',
-				'default_value' => 0,
-				'ui' => 1,
-				'ui_on_text' => 'Display',
-				'ui_off_text' => 'Hide',
-			),
-			// array(
-			// 	'key' => 'field_1_13_15',
-			// 	'label' => 'Display yellow box 4',
-			// 	'name' => 'display_yellow_4_1',
-			// 	'type' => 'true_false',
-			// 	'default_value' => 0,
-			// 	'ui' => 1,
-			// 	'ui_on_text' => 'Display',
-			// 	'ui_off_text' => 'Hide',
-			// ),
-			array(
-				'key' => 'field_1_14',
-				'label' => 'Title yellow box',
-				'name' => 'title_yellow_box',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_16',
-				'label' => 'Subtitle yellow box',
-				'name' => 'subtitle_yellow_box',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_16_1',
-				'label' => 'Red text yellow box',
-				'name' => 'red_text_yellow_box',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_18',
-				'label' => 'Image yellow box',
-				'name' => 'image_yellow_box',
-				'type' => 'image',
-			),
-			array(
-				'key' => 'field_1_19',
-				'label' => 'Text yellow box',
-				'name' => 'text_yellow_box',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_19_1',
-				'label' => 'Bonuses',
-				'name' => 'product_bonus',
-				'type' => 'repeater',
-				'sub_fields' => array(
-					array(
-						'key' => 'field_1_19_1_1',
-						'label' => 'Product Bonus Image',
-						'name' => 'product_bonus_image',
-						'type' => 'image',
-					),
-					array(
-						'key' => 'field_1_19_1_2',
-						'label' => 'Product Bonus Title',
-						'name' => 'product_bonus_title',
-						'type' => 'text',
-					),
-					array(
-						'key' => 'field_1_19_1_3',
-						'label' => 'Product Bonus Content',
-						'name' => 'product_bonus_content',
-						'type' => 'text',
-					),
-					array(
-						'key' => 'field_1_19_1_4',
-						'label' => 'Product Bonus Value',
-						'name' => 'product_bonus_value',
-						'type' => 'text',
-					),
-				),
-			),
-			array(
-				'key' => 'field_1_19_10',
-				'label' => 'Bonuses',
-				'name' => 'bonuses',
-				'type' => 'post_object',
-				'multiple' => True,
-				'post_type' => 'bonuses',
-			),
-			array(
-				'key' => 'field_1_19_2',
-				'label' => 'Moving button text',
-				'name' => 'moving_button_text',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_19_3',
-				'label' => 'Personal assistance headline',
-				'name' => 'personal_assistance_headline',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_19_4',
-				'label' => 'Personal assistance text',
-				'name' => 'personal_assistance_text',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_20',
-				'label' => 'Money back guarantee headline',
-				'name' => 'money_back_guarantee_headline',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_20_1',
-				'label' => 'Money back guarantee text',
-				'name' => 'money_back_guarantee_text',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_21',
-				'label' => 'Testimonial content',
-				'name' => 'testimonial_content',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_22',
-				'label' => 'Testimonials',
-				'name' => 'testimonials',
-				'type' => 'post_object',
-				'multiple' => True,
-				'post_type' => 'testimonials',
-			),
-			array(
-				'key' => 'field_1_22_1',
-				'label' => 'Video testimonials',
-				'name' => 'video_testimonials',
-				'type' => 'post_object',
-				'multiple' => True,
-				'post_type' => 'testimonials',
-			),
-			array(
-				'key' => 'field_1_24',
-				'label' => 'Who is for',
-				'name' => 'who_is_for',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_26',
-				'label' => 'Money back',
-				'name' => 'money_back',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_26_1',
-				'label' => 'Money back image',
-				'name' => 'money_back_image',
-				'type' => 'image',
-			),
-			array(
-				'key' => 'field_1_28',
-				'label' => 'Limited offer',
-				'name' => 'limited_offer',
-				'type' => 'wysiwyg',
-			),
-
-			array(
-				'key' => 'field_1_29',
-				'label' => 'What you get title',
-				'name' => 'what_you_get_title',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_1_30',
-				'label' => 'What you get subtitle',
-				'name' => 'what_you_get_subtitle',
-				'type' => 'text',
-			),
-
-			array(
-				'key' => 'field_1_32',
-				'label' => 'What you get image',
-				'name' => 'what_you_get_image',
-				'type' => 'image',
-			),
-			array(
-				'key' => 'field_1_33',
-				'label' => 'What you get text',
-				'name' => 'what_you_get_text',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_1_34',
-				'label' => 'FAQ',
-				'name' => 'product_faq',
-				'type' => 'repeater',
-				'sub_fields' => array(
-					array(
-						'key' => 'field_1_34_1',
-						'label' => 'Product FAQ Question',
-						'name' => 'product_faq_question',
-						'type' => 'text',
-					),
-					array(
-						'key' => 'field_1_34_2',
-						'label' => 'Product FAQ Anwser',
-						'name' => 'product_faq_anwser',
-						'type' => 'wysiwyg',
-					),
-				),
-			),
-			array(
-				'key' => 'field_1_1_1',
-				'label' => 'Timer',
-				'name' => 'timer',
-				'type' => 'date_picker',
-				'date_format' => 'dd/mm/yy',
-				'display_format' => 'dd/mm/yy',
-			),
-			array(
-				'key' => 'field_33',
-				'label' => 'Site description',
-				'name' => 'site_description',
-				'type' => 'wysiwyg',
-			),
-			array(
-				'key' => 'field_35',
-				'label' => 'Top bar text',
-				'name' => 'top_bar_text',
-				'type' => 'text',
-			),
-			array(
-				'key' => 'field_36',
-				'label' => 'Top bar button text',
-				'name' => 'top_bar_button_text',
-				'type' => 'text',
 			),
 		),
 		'location' => array(
@@ -911,6 +644,34 @@ function my_acf_add_local_field_groups() {
 	));
 }
 add_action('acf/init', 'my_acf_add_local_field_groups');
+
+
+function my_acf_add_local_field_groups1() {
+	acf_add_local_field_group(array(
+		'key' => 'group_0',
+		'title' => 'Optin/Sales Pages',
+		'fields' => array(
+			array(
+				'key' => 'field_1_9',
+				'label' => 'Selected product',
+				'name' => 'selected_product',
+				'type' => 'post_object',
+				'post_type' => 'product',
+				'return_format' => 'object',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'wffn_optin',
+				),
+			),
+		),
+	));
+}
+add_action('acf/init', 'my_acf_add_local_field_groups1');
 
 function my_acf_add_local_field_groups2()
 {
@@ -1012,52 +773,6 @@ function my_acf_add_local_field_groups3()
 			'title' => 'Checkout page',
 			'fields' => array(
 				array(
-					'key' => 'field_3_1',
-					'label' => 'Product name',
-					'name' => 'product_name_checkout',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_3_2',
-					'label' => 'Product image',
-					'name' => 'product_image_checkout',
-					'type' => 'image',
-				),
-				array(
-					'key' => 'field_3_3',
-					'label' => 'What you get',
-					'name' => 'what_you_get_checkout',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_3_4_1',
-					'label' => 'Testimonials',
-					'name' => 'testimonials',
-					'type' => 'post_object',
-					'multiple' => True,
-					'post_type' => 'testimonials',
-				),
-				array(
-					'key' => 'field_3_5',
-					'label' => 'FAQ',
-					'name' => 'product_faq',
-					'type' => 'repeater',
-					'sub_fields' => array(
-						array(
-							'key' => 'field_3_5_1',
-							'label' => 'Product FAQ Question',
-							'name' => 'product_faq_question',
-							'type' => 'text',
-						),
-						array(
-							'key' => 'field_3_5_2',
-							'label' => 'Product FAQ Anwser',
-							'name' => 'product_faq_anwser',
-							'type' => 'text',
-						),
-					),
-				),
-				array(
 					'key' => 'field_3_6',
 					'label' => 'Money back guarantee headline checkout',
 					'name' => 'money_back_guarantee_headline_checkout',
@@ -1115,18 +830,6 @@ function my_acf_add_local_field_groups4()
 					'return_format' => 'object',
 				),
 				array(
-					'key' => 'field_4_2',
-					'label' => 'Headline',
-					'name' => 'upsell_name',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_4_3',
-					'label' => 'Second upsell subject',
-					'name' => 'first_headline',
-					'type' => 'text',
-				),
-				array(
 					'key' => 'field_4_4',
 					'label' => 'Toggle bar 1',
 					'name' => 'toggle_bar_1',
@@ -1156,149 +859,7 @@ function my_acf_add_local_field_groups4()
 					'ui_on_text' => 'Display',
 					'ui_off_text' => 'Hide',
 				),
-				array(
-					'key' => 'field_4_7',
-					'label' => 'First content',
-					'name' => 'first_content_upsell',
-					'type' => 'wysiwyg',
-				),
-
-				array(
-					'key' => 'field_4_7_1',
-					'label' => 'Second content',
-					'name' => 'second_content_upsell',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_4_8',
-					'label' => 'Title yellow box',
-					'name' => 'title_yellow_box',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_4_9',
-					'label' => 'Toggle title yellow box',
-					'name' => 'toggle_title_yellow_box',
-					'type' => 'true_false',
-					'default_value' => 0,
-					'ui' => 1,
-					'ui_on_text' => 'Display',
-					'ui_off_text' => 'Hide',
-				),
-				array(
-					'key' => 'field_4_10',
-					'label' => 'Subtitle yellow box',
-					'name' => 'subtitle_yellow_box',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_4_11',
-					'label' => 'Toggle subtitle yellow box',
-					'name' => 'toggle_subtitle_yellow_box',
-					'type' => 'true_false',
-					'default_value' => 0,
-					'ui' => 1,
-					'ui_on_text' => 'Display',
-					'ui_off_text' => 'Hide',
-				),
-				array(
-					'key' => 'field_4_12',
-					'label' => 'Image yellow box',
-					'name' => 'image_yellow_box',
-					'type' => 'image',
-				),
-				array(
-					'key' => 'field_4_13',
-					'label' => 'Text yellow box',
-					'name' => 'text_yellow_box',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_4_13_01',
-					'label' => 'Testimonial content',
-					'name' => 'testimonial_content',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_4_13_1',
-					'label' => 'Testimonials',
-					'name' => 'testimonials',
-					'type' => 'post_object',
-					'multiple' => True,
-					'post_type' => 'testimonials',
-				),
-				array(
-					'key' => 'field_4_14',
-					'label' => 'Green box title',
-					'name' => 'green_box_title',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_4_15',
-					'label' => 'Green box no thanks',
-					'name' => 'green_box_no_thanks',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_4_17',
-					'label' => 'Price increase in',
-					'name' => 'price_increase',
-					'type' => 'text',
-					'instructions' => 'Number of minutes',
-				),
-				array(
-					'key' => 'field_4_17_0_0',
-					'label' => 'Toggle box content',
-					'name' => 'toggle_box_content',
-					'type' => 'true_false',
-					'default_value' => 0,
-					'ui' => 1,
-					'ui_on_text' => 'Display',
-					'ui_off_text' => 'Hide',
-				
-				),
-				array(
-					'key' => 'field_4_17_0',
-					'label' => 'Above boxes content',
-					'name' => 'above_boxes_content',
-					'type' => 'flexible_content',
-					'button_label' => 'Add row',
-					'layouts' => array (
-						array(
-							'key' => 'field_4_17_01',
-							'name' => 'upsell_above_content',
-							'label' => 'Above content', 
-						)
-					)
-				),
-				array(
-					'key' => 'field_4_18',
-					'label' => 'Flexible upsell essential box',
-					'name' => 'upsell_self_sort_essential',
-					'type' => 'flexible_content',
-					'button_label' => 'Add row',
-					'layouts' => array (
-						array(
-							'key' => 'field_4_18_0',
-							'name' => 'essential_box',
-							'label' => 'Essential box', 
-						)
-					)
-				),
-				array(
-					'key' => 'field_4_19',
-					'label' => 'Flexible upsell bundle box',
-					'name' => 'upsell_self_sort_bundle',
-					'type' => 'flexible_content',
-					'button_label' => 'Add row',
-					'layouts' => array (
-						array(
-							'key' => 'field_4_19_0',
-							'name' => 'bundle_box',
-							'label' => 'Bundle box', 
-						)
-					)
-				),
+		
 			),
 			'location' => array(
 				array(
@@ -1311,137 +872,6 @@ function my_acf_add_local_field_groups4()
 			),
 		),
 	);
-
-	acf_add_local_field(array(
-		"key" => 'field_4_17_2',
-		"label" => 'Title above box contents',
-		'name' => 'title_above_box_contents',
-		'type' => 'text',
-		'parent' => 'field_4_17_0',
-		'parent_layout' => 'field_4_17_01',
-	));
-	acf_add_local_field(array(
-		"key" => 'field_4_17_3',
-		"label" => 'Description above box contents',
-		'name' => 'desc_above_box_contents',
-		'type' => 'wysiwyg',
-		'parent' => 'field_4_17_0',
-		'parent_layout' => 'field_4_17_01',
-	));
-
-	acf_add_local_field(array(
-		'key' => 'field_4_18_01',
-		'label' => 'Product essential',
-		'name' => 'upsell_essential_product',
-		'type' => 'post_object',
-		'post_type' => 'product',
-		'return_format' => 'object',
-		'parent' => 'field_4_18',
-		'parent_layout' => 'field_4_18_0',
-	));
-
-	acf_add_local_field(array(
-		"key" => 'field_4_18_1',
-		"label" => 'Essential box title',
-		'name' => 'upsell_essential_box_title',
-		'type' => 'text',
-		'parent' => 'field_4_18',
-		'parent_layout' => 'field_4_18_0',
-	));
-	   
-    acf_add_local_field(
-		array (
-		'key' => 'field_4_18_2',
-		'label' => 'Essential box image',
-		'name' => 'upsell_essential_box_image',
-		'type' => 'image',
-		'parent' => 'field_4_18',
-		'parent_layout' => 'field_4_18_0',
-		)
-	);
-  
-	acf_add_local_field(array(
-		"key" => 'field_4_18_3',
-		"label" => 'Essential box content',
-		'name' => 'upsell_essential_box_content',
-		'type' => 'wysiwyg',
-		'parent' => 'field_4_18',
-		'parent_layout' => 'field_4_18_0',
-	));
-	   
-	acf_add_local_field(array(
-		"key" => 'field_4_18_4',
-		"label" => 'Essential button text',
-		'name' => 'upsell_essential_button',
-		'type' => 'text',
-		'parent' => 'field_4_18',
-		'parent_layout' => 'field_4_18_0',
-	));
-
-	acf_add_local_field(array(
-		'key' => 'field_4_19_01',
-		'label' => 'Product bundle',
-		'name' => 'upsell_bundle_product',
-		'type' => 'post_object',
-		'post_type' => 'product',
-		'return_format' => 'object',
-		'parent' => 'field_4_19',
-		'parent_layout' => 'field_4_19_0',
-	));
-
-	acf_add_local_field(array(
-		"key" => 'field_4_19_1',
-		"label" => 'Bundle box promo text',
-		'name' => 'upsell_bundle_box_promo',
-		'type' => 'text',
-		'parent' => 'field_4_19',
-		'parent_layout' => 'field_4_19_0',
-	));
-
-	acf_add_local_field(array(
-		"key" => 'field_4_19_2',
-		"label" => 'Bundle box title',
-		'name' => 'upsell_bundle_box_title',
-		'type' => 'text',
-		'parent' => 'field_4_19',
-		'parent_layout' => 'field_4_19_0',
-	));
-
-	acf_add_local_field(array(
-		"key" => 'field_4_19_3',
-		"label" => 'Bundle box image',
-		'name' => 'upsell_bundle_box_image',
-		'type' => 'image',
-		'parent' => 'field_4_19',
-		'parent_layout' => 'field_4_19_0',
-	));
-
-	acf_add_local_field(array(
-		"key" => 'field_4_19_4',
-		"label" => 'Bundle box content',
-		'name' => 'upsell_bundle_box_content',
-		'type' => 'wysiwyg',
-		'parent' => 'field_4_19',
-		'parent_layout' => 'field_4_19_0',
-	));
-	   
-	acf_add_local_field(array(
-		"key" => 'field_4_19_5',
-		"label" => 'Bundle button text',
-		'name' => 'upsell_bundle_button',
-		'type' => 'text',
-		'parent' => 'field_4_19',
-		'parent_layout' => 'field_4_19_0',
-	));
-	   
-	acf_add_local_field(array(
-		"key" => 'field_4_19_6',
-		"label" => 'No thanks button',
-		'name' => 'upsell_no_thanks',
-		'type' => 'text',
-		'parent' => 'field_4_19',
-		'parent_layout' => 'field_4_19_0',
-	));
 	   
    
 }
@@ -1525,408 +955,8 @@ function my_acf_add_local_field_groups5() {
 
 add_action('acf/init', 'my_acf_add_local_field_groups5');
 
-function my_acf_add_local_field_groups6() {
-
-	acf_add_local_field_group(
-		array(
-			'key' => 'group_6',
-			'title' => 'Thank you page',
-			'fields' => array(
-				array(
-					'key' => 'field_6_1',
-					'label' => 'First headline',
-					'name' => 'first_headline_thank_you',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_6_2',
-					'label' => 'Fist content',
-					'name' => 'first_content_thank_you',
-					'type' => 'wysiwyg',
-				),
-
-				array(
-					'key' => 'field_6_3',
-					'label' => 'Button text',
-					'name' => 'button_text_thank_you',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_6_4',
-					'label' => 'Button link',
-					'name' => 'button_link_thank_you',
-					'type' => 'link',
-				),
-				array(
-					'key' => 'field_6_5',
-					'label' => 'Second content',
-					'name' => 'second_content_thank_you',
-					'type' => 'text',
-				),
-
-			),
-			'location' => array(
-				array(
-					array(
-						'param' => 'post_type',
-						'operator' => '==',
-						'value' => 'wffn_ty',
-					),
-				),
-			),
-		),
-	);
-}
-
-add_action('acf/init', 'my_acf_add_local_field_groups6');
-
-function my_acf_add_local_field_groups7()
-{
-
-	acf_add_local_field_group(
-		array(
-			'key' => 'group_7',
-			'title' => 'Home page',
-			'fields' => array(
-				array(
-					'key' => 'field_7_001',
-					'label' => 'E-book top bar text',
-					'name' => 'ebook_top_bar',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_01',
-					'label' => 'E-book top bar button text',
-					'name' => 'ebook_top_bar_button',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_011',
-					'label' => 'E-book top bar button link',
-					'name' => 'ebook_top_bar_button_link',
-					'type' => 'link',
-				),
-				array(
-					'key' => 'field_7_1',
-					'label' => 'Main image home',
-					'name' => 'main_image_home',
-					'type' => 'image',
-				),
-				array(
-					'key' => 'field_7_02',
-					'label' => 'Reviews logos',
-					'name' => 'review_logos_hp',
-					'type' => 'image',
-				),
-
-				array(
-					'key' => 'field_7_2',
-					'label' => 'First text',
-					'name' => 'first_text_home',
-					'type' => 'text',
-				),
-
-				array(
-					'key' => 'field_7_3',
-					'label' => 'Second text',
-					'name' => 'second_text_home',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_7_3_1',
-					'label' => 'Third text',
-					'name' => 'third_text_home',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_4',
-					'label' => 'Form shortcode',
-					'name' => 'form_shortcode_home',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_7_5',
-					'label' => 'Headline main section',
-					'name' => 'headline_second_sections_home',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_5_1',
-					'label' => 'Products',
-					'name' => 'products',
-					'type' => 'post_object',
-					'multiple' => True,
-					'post_type' => 'product',
-				),
-				array(
-					'key' => 'field_7_5_2',
-					'label' => 'Product card button text',
-					'name' => 'product_card_button_text',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_6',
-					'label' => 'Courses',
-					'name' => 'courses',
-					'type' => 'repeater',
-					'sub_fields' => array(
-						array(
-							'key' => 'field_7_6_1',
-							'label' => 'Course image',
-							'name' => 'course_image',
-							'type' => 'image',
-						),
-						array(
-							'key' => 'field_7_6_2',
-							'label' => 'Course headline',
-							'name' => 'course_headline',
-							'type' => 'text',
-						),
-						array(
-							'key' => 'field_7_6_3',
-							'label' => 'Course text',
-							'name' => 'course_text',
-							'type' => 'wysiwyg',
-						),
-					),
-				),
-				array(
-					'key' => 'field_7_7',
-					'label' => 'Name section',
-					'name' => 'headline_third_section_home',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_7_1',
-					'label' => 'Round photo section',
-					'name' => 'image_third_section_home',
-					'type' => 'image',
-				),
-				array(
-					'key' => 'field_7_8',
-					'label' => 'Content 1',
-					'name' => 'content_third_section_home',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_7_14',
-					'label' => 'Homepage button',
-					'name' => 'homepageButton_link',
-					'type' => 'link',
-				),
-				array(
-					'key' => 'field_7_15',
-					'label' => 'Homepage button text',
-					'name' => 'homepageButton_text',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_9',
-					'label' => 'Headline fourth Section',
-					'name' => 'headline_fourth_section_home',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_10',
-					'label' => 'Content fourth section',
-					'name' => 'content_fourth_section_home',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_7_11',
-					'label' => 'Testimonials',
-					'name' => 'testimonials',
-					'type' => 'post_object',
-					'multiple' => True,
-					'post_type' => 'testimonials',
-				),
-
-				array(
-					'key' => 'field_7_12',
-					'label' => 'Headline fifth Section',
-					'name' => 'headline_fifth_section_home',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_13',
-					'label' => 'Content fifth section',
-					'name' => 'content_fifth_section_home',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_7_16',
-					'label' => 'Newsletter form image',
-					'name' => 'newsletter_form_image',
-					'type' => 'image',
-				),
-				array(
-					'key' => 'field_7_17',
-					'label' => 'Newsletter form text',
-					'name' => 'newsletter_form_text',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_7_18',
-					'label' => 'Newsletter form shortcode',
-					'name' => 'newsletter_shortcode_home',
-					'type' => 'text',
-				),
 
 
-			),
-			'location' => array(
-				array(
-					array(
-						'param' => 'post_type',
-						'operator' => '==',
-						'value' => 'page',
-					),
-				),
-			),
-		),
-	);
-}
-
-add_action('acf/init', 'my_acf_add_local_field_groups7');
-
-function my_acf_add_local_field_groups8()
-{
-
-	acf_add_local_field_group(
-		array(
-			'key' => 'group_8',
-			'title' => 'Author page',
-			'fields' => array(
-				array(
-					'key' => 'field_8_1',
-					'label' => 'Author intro text',
-					'name' => 'author_intro_text',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_8_2',
-					'label' => 'Author content',
-					'name' => 'author_content_text',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_8_3',
-					'label' => 'Author e-book image',
-					'name' => 'author_ebook_img',
-					'type' => 'image',
-				),
-				array(
-					'key' => 'field_8_4',
-					'label' => 'Author e-book content',
-					'name' => 'author_ebook_content',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_8_5',
-					'label' => 'Author signature',
-					'name' => 'author_signature',
-					'type' => 'image',
-				),
-			),
-			'location' => array(
-				array(
-					array(
-						'param' => 'post_template',
-						'operator' => '==',
-						'value' => 'template-author.blade.php',
-					),
-				),
-			),
-		),
-	);
-}
-
-add_action('acf/init', 'my_acf_add_local_field_groups8');
-
-function my_acf_add_local_field_groups9()
-{
-
-	acf_add_local_field_group(
-		array(
-			'key' => 'group_9',
-			'title' => 'Upsell page - Steps Template',
-			'fields' => array(
-				array(
-					'key' => 'field_9_4',
-					'label' => 'Content in box',
-					'name' => 'box_content',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_9_5_1',
-					'label' => 'Moving button text',
-					'name' => 'moving_button_text',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_9_6',
-					'label' => 'After button text',
-					'name' => 'after_button_upsell',
-					'type' => 'wysiwyg',
-				),
-				array(
-					'key' => 'field_9_7',
-					'label' => 'No thanks button text',
-					'name' => 'no_thanks_text',
-					'type' => 'text',
-				),
-				array(
-					'key' => 'field_9_5',
-					'label' => 'Guarantee text',
-					'name' => 'guarantee_text_upsell',
-					'type' => 'wysiwyg',
-				),
-			),
-			'location' => array(
-				array(
-					array(
-						'param' => 'post_template',
-						'operator' => '==',
-						'value' => 'template-upsell_steps.blade.php',
-					),
-				),
-			),
-		),
-	);
-}
-
-add_action('acf/init', 'my_acf_add_local_field_groups9');
-
-function my_acf_add_local_field_groups10() {
-
-	acf_add_local_field_group(
-		array(
-			'key' => 'group_10',
-			'title' => 'Reusable Blocks page',
-			'fields' => array(
-				array(
-					'key' => 'field_10',
-					'label' => 'About me section',
-					'name' => 'about_me_section',
-					'type' => 'wysiwyg',
-				),
-
-			),
-		
-			'location' => array(
-				array(
-					array(
-						'param' => 'options_page',
-						'operator' => '==',
-						'value' => 'reusable-blocks',
-					),
-				),
-			),
-		),
-	);
-}
-
-add_action('acf/init', 'my_acf_add_local_field_groups10');
 
 function my_acf_add_local_field_groups11() {
 
@@ -1987,13 +1017,6 @@ if (function_exists('acf_add_options_page')) {
 		'redirect'		=> false
 	));
 
-	acf_add_options_page(array(
-		'page_title' 	=> 'Reusable Template Blocks',
-		'menu_title'	=> 'Reusable Blocks',
-		'menu_slug' 	=> 'reusable-blocks',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
 }
 
 
@@ -2171,7 +1194,9 @@ display:none;
 		body .wfacp-notices-wrapper {
 			display: none;
 		}
-
+		body #wfacp-e-form .wfacp_main_form {
+			background-color: transparent !important;
+		}
 		body #wfacp-e-form .wfacp_main_form .wfacp-comm-title {
 			margin-bottom: 20px !important;
 		}
@@ -2183,7 +1208,12 @@ display:none;
 		body #place_order {
 			border-radius: 10px !important;
 		}
-
+		.dynamic-checkout .wfacp-order-place-btn-wrap  #place_order {
+			display: none !important;
+		}
+		body.wfacp_checkout-template-default .new_order_button {
+			display: none !important;
+		}
 		body #wfacp-e-form .wfacp_main_form .woocommerce-checkout .wfacp-order-place-btn-wrap {
 			margin-top: 20px;
 		}
@@ -2369,8 +1399,9 @@ display:none;
 			font-weight: 400 !important;
 			color: #131313 !important;
 			margin-bottom: 0px !important;;
+			font-family: 'barlow' !important;
 		}
-
+		
 		body .wfacp_form_cart table.shop_table tbody tr.cart_item td span:not(.wfacp-pro-count) {
 			color: #131313 !important;
 			font-size: 16px;
@@ -2387,8 +1418,12 @@ display:none;
 		}
 
 		body .wfacp-left-panel.wfacp_page.embed_form.single_step.wfacp_last_page {
-			background-color: transparent;
+			background-color: white;
 			box-shadow: 0px 8px 16px rgb(0 0 0 / 8%);
+		}
+		.dynamic-checkout .wfacp-left-panel.wfacp_page.embed_form.single_step.wfacp_last_page,.dynamic-checkout #wfacp-e-form #wfacp_checkout_form{
+			background-color: transparent !important;;
+			box-shadow: none;
 		}
 
 		body .wfacp_main_form.woocommerce .wfacp-section.wfacp_payment {
@@ -2405,10 +1440,11 @@ display:none;
 			padding: 20px;
 			margin-bottom: 0px;
 		}
+	
 
 		body #wfacp-e-form .wfacp_form .wfacp-inner-form-detail-wrap {
 			padding: 0px !important;
-			background-color: transparent;
+			background-color: transparent !important;
 		}
 
 		body .wfacp_main_form.woocommerce input[type=checkbox]:checked:before {
@@ -2457,13 +1493,7 @@ display:none;
 			position: absolute;
 			margin-top: -33px;
 		}
-
-
 		@media (max-width:479px) {
-			body #wfacp-e-form .wfacp_main_form .wfacp_section_title {
-				font-size: 25px !important;
-			}
-
 			body .wfacp_form_cart table.shop_table tbody tr.cart_item td span:not(.wfacp-pro-count) {
 				padding-bottom: 8px;
 			}
@@ -2474,10 +1504,6 @@ display:none;
 		}
 
 		@media (max-width:744px) {
-			body #wfacp-e-form .wfacp_main_form .wfacp_section_title {
-				font-size: 25px !important;
-			}
-
 			body .wfacp_form_cart table.shop_table tbody tr.cart_item td span:not(.wfacp-pro-count) {
 				padding-bottom: 8px;
 			}
@@ -2491,11 +1517,6 @@ display:none;
 			}
 		}
 
-		@media (max-width:991px) {
-			body #wfacp-e-form .wfacp_main_form .wfacp_section_title {
-				font-size: 28px !important;
-			}
-		}
 
 		@media (min-width:768px) and (max-width:991px) {
 			.wfob_contentBox.wfob_clear {
@@ -2604,8 +1625,13 @@ display: none;
 			margin-bottom: 24px;
 			padding-top: 8px !important;
 		}
-		
-
+		.dynamic-checkout .wfacp_form_cart {
+			padding: 0px !important;
+		}
+		.dynamic-checkout .woocommerce-info {
+			float: right !important;
+			margin: 20px 0 30px 0;
+		}
 		.aligncenter {
 			margin: auto;
 		}
@@ -2696,10 +1722,7 @@ display: none;
 	
 		}
 		body .product-checkout-choose {
-			box-shadow: 0px 8px 16px rgb(0 0 0 / 8%);
-			background-color: white;
-			z-index: 5;
-			position: relative;
+			display: none;
 		}
 	
 		@media(max-width: 767px) {
@@ -2729,7 +1752,6 @@ display: none;
 			font-weight: 700;
 		}
 		body .woocommerce-checkout {
-			box-shadow: none;
 			background-color: white;
 		}
 		@media(max-width: 767px) {
@@ -2838,8 +1860,9 @@ display: none;
 			font-weight: 500;
 			font-size: 32px;
 		}
-		body #wfacp-e-form .wfacp_main_form .wfacp_section_title {
-			font-family: 'barlow' !important;
+		.dynamic-checkout .wfacp_form_cart .wfacp-order-summary-label, .dynamic-checkout  #wfacp-e-form .wfacp_main_form .wfacp_section_title {
+			font-size: 20px !important;
+			font-weight: 500 !important;
 		}
 		body #wfacp-e-form .wfacp_main_form .form-row input[type=email], body #wfacp-e-form .wfacp_main_form .form-row input[type=email]:focus,
 		body #wfacp-e-form .wfacp_main_form .form-row input[type=email]:active {
@@ -2858,6 +1881,378 @@ display: none;
 			background-position: right 12px bottom 12px;
 			background-size: 24px;
 			width: 100%;
+			background-color: white;
+		}
+
+
+		/**DYNAMIC CHECKOUT STYLES */
+
+		body.wfacp_checkout-template-template-dynamic_checkout {
+			background-color: #F3F3F3;
+		}
+		body .dynamic-checkout #wfacp-e-form .wfacp_main_form .woocommerce-checkout .button.button#place_order {
+			border-radius: 5px !important;
+			padding: 30px;
+			margin-right: 20px;
+		}
+		@media(max-width: 768px) {
+			body .dynamic-checkout #wfacp-e-form .wfacp_main_form .woocommerce-checkout .button.button#place_order {
+				font-size: 24px !important;
+			}
+		}
+		body .dynamic-checkout #wfacp-e-form .wfacp_main_form .woocommerce-checkout .button.button#place_order:after {
+			display: inline-block;
+			content: "";
+			background-image: url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/buy-button-icon.svg')); ?>);
+			width: 30px;
+			height: 30px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-right: 20px;
+		}
+		body .dynamic-checkout #wfacp-e-form .wfacp_main_form .woocommerce-checkout .button.button#place_order:before {
+			width: 0;
+			height: 0;
+			background-image: none;
+		}
+		.dynamic-checkout .wfacp-section.wfacp-hg-by-box.step_0.form_section_single_step_0_embed_forms_2, .dynamic-checkout #wfacp-e-form .wfacp-section.wfacp_payment {
+			padding: 0px;
+		}
+		
+		.dynamic-checkout .woocommerce-checkout {
+			padding-right: 20px;
+		}
+		.dynamic-checkout .product-checkout-choose {
+			margin-top: 20px;
+		}
+		.dynamic-checkout .wfacp_product_switcher {
+			padding: 0px !important;
+			display: block !important;
+		}
+		.dynamic-checkout .wfacp_product_switcher .wfacp-row{
+			margin-left: 0px !important;
+			margin-right: 0px !important;
+		}
+		.dynamic-product #wfacp-e-form .wfacp_main_form .woocommerce-cart-form__cart-item.cart_item.wfacp-selected-product {
+			border:	1px solid #04C100 !important;
+			background-color: transparent !important;
+		}
+		.dynamic-checkoutdy .wfacp-product-switch-panel {
+			margin-bottom: 0px !important;
+			padding: 0px !important;
+		}
+
+		.dynamic-checkout .wfacp_product_switcher_description .product_name {
+			height: 40px !important;
+			color: #333333 !important;
+		}
+		.dynamic-checkout  .wfacp_product_switcher_item  {
+			display: flex !important;
+			align-items: center;
+			justify-content: flex-start;
+		}
+		@media(max-width: 768px) {
+			.dynamic-checkout  .wfacp_product_switcher_item  {
+				padding-right: 25%;
+			}
+			.dynamic-checkout .wfacp_ps_div_row {
+				width: 25% !important;
+			}
+		}
+		
+		.dynamic-checkout #product_switching_field.wfacp-product-switch-panel .woocommerce-cart-form__cart-item.cart_item {
+    		padding: 0;
+			position: relative;
+			background: white ;
+			border-radius: 3px !important;
+			margin-top: 7px !important;
+		}
+		.dynamic-checkout #product_switching_field.wfacp-product-switch-panel .wfacp-selected-product {
+			border: 1px solid #00AB30 !important;
+			background: #F7F7F7 !important;
+		}
+		.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item {
+			border: 1px solid #ddd;
+		}
+		.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item .wfacp_row_wrap {
+			position: relative;
+			display: flex;
+		}
+		.dynamic-checkout #product_switching_field.wfacp_not_force_all .wfacp_ps_title_wrap {
+			display: flex;
+		}
+		.dynamic-checkout .wfacp-product-switch-title .product-remove {
+			font-size: 20px !important;
+			color: #131313 !important;
+			padding-left: 0px !important;
+			display: flex !important;;
+			align-items: center !important;
+		}
+		.dynamic-checkout .wfacp-product-switch-title .product-remove:before {
+			content:  url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/option-checkout.svg')); ?>);
+			width: 25px;
+			height: 25px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-right: 10px;
+		}
+		.dynamic-checkout .wfacp_product_switcher_col.wfacp_product_switcher_col_1  {
+			display: flex;
+			align-items: center;
+		}
+		.dynamic-checkout #wfacp-e-form .wfacp_form .woocommerce-checkout #payment {
+			background-color: transparent !important;
+		}
+		.dynamic-checkout #wfacp-e-form .wfacp_main_form .wfacp-comm-title {
+			margin-bottom: 0px !important;
+		}
+		.dynamic-checkout #wfacp-e-form .wfacp-section.wfacp_payment {
+			margin-top: 20px !important;
+		}
+		body .dynamic-checkout .wfacp-hg-by-box.billing-title .wfacp-comm-title, body .dynamic-checkout .wfacp-hg-by-box.wfacp_payment .wfacp-comm-title,
+		body .dynamic-checkout #product-title, body .dynamic-checkout .wfacp_form_cart .wfacp-order-summary-label, body .dynamic-checkout .wfacp-hg-by-box.step_0 .wfacp_internal_form_wrap{
+			display: flex !important;
+			align-items: center !important;
+		}
+		body .dynamic-checkout .wfacp-hg-by-box.step_0 .wfacp_internal_form_wrap:before {
+			content:  url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/user-checkout.svg')); ?>);
+			width: 25px;
+			height: 25px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-right: 10px;
+		}
+	
+		body .dynamic-checkout .wfacp-hg-by-box.wfacp_payment .wfacp-comm-title:before {
+			content:  url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/billing-info-checkout.svg')); ?>);
+			width: 25px;
+			height: 25px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-right: 10px;
+		}
+		body .dynamic-checkout .wfacp-hg-by-box.wfacp_payment #payment .wfacp-comm-title {
+			display: none !important;
+		}
+		
+		body .dynamic-checkout #product-title:before {
+			content:  url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/order-checkout.svg')); ?>);
+			width: 25px;
+			height: 31px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-right: 5px;
+		}
+		body .dynamic-checkout .wfacp_form_cart .wfacp-order-summary-label:before {
+			content:  url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/order-summ-checkout.svg')); ?>);
+			width: 25px;
+			height: 25px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-right: 5px;
+		}
+		.dynamic-checkout  .woocommerce.wfacp_single_step_form.wfacp_three_step .woocommerce-info {
+			display: none !important;
+		}
+		.dynamic-checkout .wfob_bump_wrapper.woocommerce_before_checkout_form {
+			margin-top: 40px;
+		}
+		.dynamic-checkout .payment_box.payment_method_stripe {
+			background: transparent !important;
+		}
+
+		/**BUMP LAYOUT-3 STYLE - BUTTON ONLY, DYNAMIC CHECKOUT */
+		.dynamic-checkout .wfob_bump_wrapper .wfob_wrap_start {
+			margin-bottom: 40px !important;
+		}
+		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 {
+			padding: 15px 10px !important;
+		}
+		.dynamic-checkout .wfob_l3_wrap {
+			position: relative;
+			padding-bottom: 30px !important;
+
+		}
+		.dynamic-checkout .wfob_l3_s_data {
+			position: absolute;
+			padding: 10px;
+			top: 0;
+			left: 0;
+			width: 80%;
+			background-color: #FEF9E9;
+			height: 100px;
+			display: flex;
+			align-items: center;
+		}
+		.dynamic-checkout .wfob_l3_c_head {
+			font-size: 16px !important;
+			font-weight: 600 !important;
+			line-height: 20px !important;
+		}
+		.dynamic-checkout .wfob_l3_s_btn .wfob_price {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100px;
+			display: flex;
+			align-items: flex-end;
+			background: #fef9e9;
+			padding: 10px;
+			width: 20%;
+			display: flex;
+    		flex-direction: column-reverse;
+			justify-content: center;
+		}
+		.dynamic-checkout .wfob_l3_s_btn .wfob_price .woocommerce-Price-amount bdi {
+			font-size: 32px !important;
+			font-weight: 600 !important;
+		}
+		@media(max-width: 767px) {
+			.dynamic-checkout .wfob_l3_s_btn .wfob_price .woocommerce-Price-amount bdi {
+				font-size: 23px !important;
+			}
+		}
+		.dynamic-checkout .wfob_l3_s_btn .wfob_price del .woocommerce-Price-amount bdi {
+			font-size: 14px !important;
+			font-weight: 400 !important;
+		}
+		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 .wfob_l3_s_img {
+			margin-top: 115px;
+		}
+		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 .wfob_l3_s_desc {
+			margin-top: -170px;
+			width: 68% !important;
+			margin-left: auto;
+		}
+		@media(max-width: 992px) {
+			.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 .wfob_l3_s_desc {
+				margin-top: 260px !important;
+				padding: 0px 20px !important;
+				width: 100% !important;
+			}
+			.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 .wfob_l3_s_img {
+				margin-top: 100px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100% !important;
+			}
+			.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 .wfob_l3_s_img img {
+				width: 160px;
+			}
+		}
+		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 p {
+			font-size: 14px !important;
+			font-weight: 400 !important;
+		}
+		.dynamic-checkout #wfob_main_wrapper_start .wfob_l3_wrap .wfob_l3_s_btn .wfob_l3_f_btn.wfob_btn_add.wfob_bump_product {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			bottom: 0;
+			padding: 10px 30px !important;
+			width: auto !important;
+			border-radius: 5px;
+			font-size: 24px !important;
+			background-color: #D20000 !important;
+			border: none !important;
+			color: white !important;
+			font-weight: 600 !important;
+			bottom: -36px !important;
+			left: 50%;
+			transform: translate(-50%, 0%);
+			margin-right: -50%;
+			line-height: 24px !important;
+		}
+		@media(max-width: 767px) {
+			.dynamic-checkout #wfob_main_wrapper_start .wfob_l3_wrap .wfob_l3_s_btn .wfob_l3_f_btn.wfob_btn_add.wfob_bump_product,
+			.dynamic-checkout #wfob_main_wrapper_start .wfob_l3_wrap .wfob_l3_s_btn .wfob_l3_f_btn.wfob_btn_add.wfob_btn_remove.wfob_item_present {
+				font-size: 20px !important;
+			}
+		}
+		.dynamic-checkout #wfob_wrap .wfob_bump_r_outer_wrap.wfob_layout_3 a.wfob_l3_f_btn.wfob_btn_remove.wfob_item_present,
+		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3[data-wfob-id='20744'] a.wfob_l3_f_btn.wfob_btn_remove.wfob_item_present {
+			position: absolute;
+			bottom: 0;
+			padding: 10px 30px !important;
+			width: 270px !important;
+			border-radius: 5px;
+			font-size: 24px !important;
+			background-color: black !important;
+			border: none !important;
+			color: white !important;
+			display: flex;
+			justify-content: center;
+			font-weight: 600 !important;
+			bottom: -36px !important;
+			line-height: 24px !important;
+			left: 50%;
+			transform: translate(-50%, 0%);
+			margin-right: -50%;
+		}
+		.dynamic-checkout #wfob_main_wrapper_start .wfob_l3_wrap .wfob_l3_s_btn .wfob_l3_f_btn.wfob_btn_add.wfob_btn_remove.wfob_item_present .wfob_btn_text_added:after {
+			content:  url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/added_to_order_bump.svg')); ?>);
+			width: 25px;
+			height: 25px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-right: 0px;
+			margin-top: 2px;
+		}
+		.dynamic-checkout #wfob_main_wrapper_start .wfob_l3_wrap .wfob_l3_s_btn .wfob_l3_f_btn.wfob_btn_add.wfob_btn_remove.wfob_item_present .wfob_btn_text_added {
+			display: inline-flex;
+		}
+		.dynamic-checkout #wfob_main_wrapper_start .wfob_l3_wrap .wfob_l3_s_btn .wfob_l3_f_btn.wfob_btn_add.wfob_bump_product:after {
+			content:  url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/add_to_order_bump.svg')); ?>);
+			width: 25px;
+			height: 25px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-right: 0px;
+		}
+		@media(max-width: 767px) {
+			.dynamic-checkout #wc-stripe-payment-request-button-separator {
+				height: 15px !important;
+				display: block !important;
+			}
+		}
+		.dynamic-checkout a.wfacp_main_showcoupon:hover {
+			color: #E08107 !important;
+		}
+		.dynamic-checkout #wfob_wrap .wfob_wrapper .wfob_bump {
+			border: 3px dashed #FF0000 !important;
+		}
+		.dynamic-checkout .woocommerce-invalid input {
+			background-color: #FFF6F6 !important;
+			border: 1px solid #D20000 !important;
+		}
+		.dynamic-checkout #wfacp-e-form .wfacp-inside .form-row.woocommerce-invalid  > label.wfacp-form-control-label:not(.checkbox) {
+			background-color: #FFF6F6 !important;
+			width: 90% !important;
+		}
+		.dynamic-checkout ul.woocommerce-error {
+			display: none !important;
+		}
+		
+		.dynamic-checkout #wfacp-e-form .wfacp_main_form .form-row.woocommerce-invalid input, .dynamic-checkout #wfacp-e-form .wfacp_main_form .form-row.woocommerce-invalid input#billing_first_name{
+			background: url(<?php echo esc_url(get_theme_file_uri('/resources/assets/images/invalid-field.png')); ?>) no-repeat scroll 0 1px transparent;
+			display: block;
+			background-position: right 8px bottom 9px;
+			background-size: 24px;
+			width: 100%;
+		}
+		
+		.dynamic-checkout #wfacp-e-form .woocommerce-checkout #payment ul.payment_methods li{
+			margin-bottom: 0px !important;
+		}
+		.dynamic-checkout #wfob_wrap .wfob_wrapper .wfob_bump.active-bump {
+			border: 3px dashed #04c100 !important;
+		}
+		.dynamic-checkout .wfob_bump .active-bump-header > .wfob_l3_s_data , .dynamic-checkout .wfob_bump .active-bump-header > .wfob_l3_s_btn > .wfob_price {
+			background-color: #F5F5F5 !important;
+		}
+		body .form-row#shipping_state_field {
+			width: 100% !important;
 		}
 	</style>
 	<?php
@@ -2882,146 +2277,64 @@ function my_custom_styles($init_array)
 	$style_formats = array(
 		// These are the custom styles
 		array(
-			'title' => 'Headline h2 - sales page',
-			'block' => 'span',
-			'classes' => 'headline-h2-sales-page',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Headline h1 - sales page',
-			'block' => 'span',
-			'classes' => 'headline-h1-sales-page',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Subheading h2 - sales page',
-			'block' => 'span',
-			'classes' => 'subheading-h2-sales-page',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Headline h2 - sales page - no margin top',
-			'block' => 'span',
-			'classes' => 'headline-h2-sales-page-no-margin-top',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Headline h3 - sales page - subheadline',
-			'block' => 'span',
-			'classes' => 'headline-h3-sales-page-subheadline',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Headline h3 - sales page - align left',
-			'block' => 'span',
-			'classes' => 'headline-h3-sales-page-align-left',
-			'wrapper' => true,
-		), array(
-			'title' => 'Headline h2 - sales page - no margin top',
-			'block' => 'span',
-			'classes' => 'headline-h2-sales-page-no-margin-top',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Headline h3 - sales page',
-			'block' => 'span',
-			'classes' => 'headline-h3-sales-page',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Paragraph - sales page ',
-			'block' => 'span',
-			'classes' => 'paragraph-sales-page',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Bullets - sales page ',
+			'title' => 'Bullets dot - orange',
 			'block' => 'span',
 			'classes' => 'bullets-sales-page',
 			'wrapper' => true,
 		),
 		array(
-			'title' => 'Black bullets',
-			'block' => 'div',
+			'title' => 'Bullets dot - black',
+			'block' => 'span',
 			'classes' => 'black-bullets',
 			'wrapper' => true,
 		),
 		array(
-			'title' => 'Green check - upsell page ',
-			'block' => 'span',
-			'classes' => 'check-upsell-page-green',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Check - sales page ',
+			'title' => 'Bullets check - green',
 			'block' => 'span',
 			'classes' => 'check-sales-page',
 			'wrapper' => true,
 		),
 		array(
-			'title' => 'Check - sales page green ',
-			'block' => 'span',
-			'classes' => 'check-sales-page-green',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Check - sales page orange ',
+			'title' => 'Bullets check - orange',
 			'block' => 'span',
 			'classes' => 'check-sales-page-orange',
 			'wrapper' => true,
 		),
 		array(
-			'title' => 'Highlight text ',
+			'title' => 'Highlight text - yellow background',
 			'block' => 'span',
 			'classes' => 'highlight-text',
 			'wrapper' => true,
 		),
+
 		array(
-			'title' => 'List numbers',
+			'title' => 'Ordered list - orange (div wrapper)',
 			'block' => 'div',
 			'classes' => 'list-numbers',
 			'wrapper' => true,
 		),
 		array(
-			'title' => 'Arrow right - author page',
+			'title' => 'Bullets arrow - orange',
 			'block' => 'span',
 			'classes' => 'arrow-r-author',
 			'wrapper' => true,
 		),
 		array(
-			'title' => 'Headline h2 - author page',
-			'block' => 'span',
-			'classes' => 'headline-h2-author-page',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Headline h2 red - upsell',
-			'block' => 'span',
-			'classes' => 'headline-red',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Paragraph red - upsell',
-			'block' => 'span',
-			'classes' => 'paragraph-red',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Italic bold - Upsell',
-			'block' => 'span',
-			'classes' => 'italic-bold',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'Infinity bullet ',
+			'title' => 'Infinity bullet',
 			'block' => 'span',
 			'classes' => 'infinity-bullet',
 			'wrapper' => true,
 		),
 		array(
-			'title' => 'Gift bullet ',
+			'title' => 'Gift bullet',
 			'block' => 'span',
 			'classes' => 'gift-bullet',
+			'wrapper' => true,
+		),
+		array(
+			'title' => 'Red Background',
+			'block' => 'span',
+			'classes' => 'red-background',
 			'wrapper' => true,
 		),
 	);
@@ -3508,6 +2821,7 @@ function myplugin_settings()
 {
 	register_taxonomy_for_object_type('category', 'page');
 	register_taxonomy_for_object_type('category', 'wffn_landing');
+	register_taxonomy_for_object_type('category', 'wffn_optin');
 	register_taxonomy_for_object_type('category', 'wfacp_checkout');
 }
 add_action('init', 'myplugin_settings');
@@ -3518,10 +2832,7 @@ add_action('init', 'myplugin_settings');
 	$html = ' <span class="text-black text-base">' . 'Do you have a coupon?' . '</span> ' . '<span class="wfacp_showcoupon">' .  __( 'Click here ', 'woocommerce' ) . '</span>';
 	return $html;
 } );*/
-add_filter('woocommerce_checkout_coupon_message', function () {
-	$html = ' <span  class="wfacp_main_showcoupon">' . __('Do you have a coupon?', 'woocommerce') . ' ' . __('Click here', 'woocommerce') . '</span>';
-	return $html;
-});
+
 
 /* GRAVITY FORMS SUBMIT BUTTON */
 add_filter('gform_confirmation_anchor', '__return_false');
@@ -3542,7 +2853,11 @@ function change_button_text($button_text)
 	$button_text = 'GET INSTANT ACCESS';
 	return  $button_text;
 }
-
+add_action( 'woocommerce_checkout_after_customer_details', 'second_place_order_button', 5 );
+function second_place_order_button() {
+    echo '<button type="submit" class="button alt new_order_button" 
+	name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">CLICK TO CONTINUE</button>';
+}
 /** HEADING IN 2 COLORS */
 function headingColors()
 { ?>
@@ -3628,3 +2943,158 @@ function wpse_2885899_add_template($template)
 
 	return $template;
 }
+add_filter('template_include', 'wp_add_checkout_template', 1000, 1);
+
+function wp_add_checkout_template($template) {
+	global $post;
+	if (class_exists('WFACP_Common') && !is_null($post) && $post->post_type === WFACP_Common::get_post_type_slug()) {
+		$page_template = apply_filters('bwf_page_template', get_post_meta($post->ID, '_wp_page_template', true), $post->ID);
+		if ('Generic checkout' === $page_template) {
+			$template = (get_template_directory() . '/resources/views/template-generic_checkout.blade.php');
+		}
+	}
+
+	return $template;
+}
+
+
+add_filter('template_include', 'wp_add_checkout_template_1', 1001, 1);
+
+function wp_add_checkout_template_1($template) {
+	global $post;
+	if (class_exists('WFACP_Common') && !is_null($post) && $post->post_type === WFACP_Common::get_post_type_slug()) {
+		$page_template = apply_filters('bwf_page_template', get_post_meta($post->ID, '_wp_page_template', true), $post->ID);
+		if ('Generic checkout' === $page_template) {
+			$template = (get_template_directory() . '/resources/views/template-dynamic_checkout.blade.php');
+		}
+	}
+
+	return $template;
+}
+
+/**
+ * Removes buttons from the first row of the tiny mce editor
+ *
+ * @link     http://thestizmedia.com/remove-buttons-items-wordpress-tinymce-editor/
+ *
+ * @param    array    $buttons    The default array of buttons
+ * @return   array                The updated array of buttons that exludes some items
+ */
+add_filter( 'mce_buttons', 'jivedig_remove_tiny_mce_buttons_from_editor');
+function jivedig_remove_tiny_mce_buttons_from_editor( $buttons ) {
+
+    $remove_buttons = array(
+		'readmore',
+        'spellchecker',
+        'dfw', // distraction free writing mode
+        'wp_adv', // kitchen sink toggle (if removed, kitchen sink will always display)
+    );
+    foreach ( $buttons as $button_key => $button_value ) {
+        if ( in_array( $button_value, $remove_buttons ) ) {
+            unset( $buttons[ $button_key ] );
+        }
+    }
+    return $buttons;
+}
+
+/**
+ * Removes buttons from the second row (kitchen sink) of the tiny mce editor
+ *
+ * @link     http://thestizmedia.com/remove-buttons-items-wordpress-tinymce-editor/
+ *
+ * @param    array    $buttons    The default array of buttons in the kitchen sink
+ * @return   array                The updated array of buttons that exludes some items
+ */
+add_filter( 'mce_buttons_2', 'jivedig_remove_tiny_mce_buttons_from_kitchen_sink');
+function jivedig_remove_tiny_mce_buttons_from_kitchen_sink( $buttons ) {
+
+    $remove_buttons = array(
+        'formatselect', // format dropdown menu for <p>, headings, etc
+        'pastetext', // paste as text
+        'removeformat', // clear formatting
+        'charmap', // special characters
+        'outdent',
+        'indent',
+        'undo',
+        'redo',
+        'wp_help', // keyboard shortcuts
+		'hr'
+    );
+    foreach ( $buttons as $button_key => $button_value ) {
+        if ( in_array( $button_value, $remove_buttons ) ) {
+            unset( $buttons[ $button_key ] );
+        }
+    }
+    return $buttons;
+}
+/**
+ * Remove the Color Picker plugin from tinyMCE. This will
+ * prevent users from adding custom colors. Note, the default color
+ * palette is still available (and customizable by developers) via
+ * textcolor_map using the tiny_mce_before_init hook.
+ * 
+ * @param array $plugins An array of default TinyMCE plugins.
+ */
+add_filter( 'tiny_mce_plugins', 'wpse_tiny_mce_remove_custom_colors' );
+function wpse_tiny_mce_remove_custom_colors( $plugins ) {       
+
+    foreach ( $plugins as $key => $plugin_name ) {
+        if ( 'colorpicker' === $plugin_name ) {
+            unset( $plugins[ $key ] );
+            return $plugins;            
+        }
+    }
+
+    return $plugins;            
+}
+function my_mce4_options($init) {
+
+    $custom_colours = '
+        "131313", "Dark Gray",
+        "D20000", "Dark Red",
+    ';
+
+    // build colour grid default+custom colors
+    $init['textcolor_map'] = '['.$custom_colours.']';
+
+    // change the number of rows in the grid if the number of colors changes
+    // 8 swatches per row
+    $init['textcolor_rows'] = 1;
+
+    return $init;
+}
+add_filter('tiny_mce_before_init', 'my_mce4_options');
+
+add_filter('tiny_mce_before_init', function($init_array) {
+    $init_array['formats'] = json_encode([
+        // add new format to formats
+        'paragraphSmall' => [
+            'selector' => 'p',
+            'block'    => 'p',
+            'classes'  => 'small-paragraph',
+        ],
+		'subHeading' => [
+            'selector' => 'h2',
+            'block'    => 'h2',
+            'classes'  => 'sub-heading',
+        ],
+    ], JSON_THROW_ON_ERROR);
+
+    // remove from that array not needed formats
+    $block_formats = [
+        'Paragraph=p',
+		'Paragraph small=paragraphSmall',    // use the new format in select
+        'Heading 1=h1',
+        'Heading 2=h2',
+		'Sub Heading 2=subHeading',
+        'Heading 3=h3',
+        'Heading 4=h4',
+        'Heading 5=h5',
+        'Heading 6=h6',
+        'Preformatted=pre',
+    ];
+    $init_array['block_formats'] = implode(';', $block_formats);
+
+    return $init_array;
+});
+

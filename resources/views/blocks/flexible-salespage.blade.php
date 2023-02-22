@@ -10,16 +10,16 @@
 @layouts('salespage_sections')
     @layout('text_with_background')
     <div class="w-full flex mt-4 justify-center">
-        <div class="bg-darkerRed py-1 px-10 text-white normal-case md:text-xl text-sm w-fit font-semibold rounded-full">
+        <div class="bg-darkerRed py-1 px-10 text-white normal-case md:text-xl text-sm w-fit font-semibold rounded-full text-center">
             @sub('text_with_background_color')
         </div>
     </div>
     @endlayout
-    @layout('headline')
-        @sub('main_heading_h1')
+    @layout('main_heading')
+        @sub('heading')
     @endlayout
     @layout('subheading')
-        @sub('sub_heading')
+        @sub('subheading')
     @endlayout
     @layout('product_preview')
         @include('partials.program-section-new')
@@ -27,7 +27,7 @@
 @endlayouts
 </section>
 <section class="container">
-    <div class="max-w-contentwidth mt-10 m-auto text-center">
+    <div class="max-w-contentwidth mt-10 m-auto">
     @layouts('salespage_sections')
         @layout('logos_badges')
         <?php $images = get_sub_field('logo_badge');
@@ -57,6 +57,9 @@
                 <img src=" @sub('image', 'url')"></img>
             </div>
         @endlayout
+        @layout('heading')
+            @sub('heading')
+        @endlayout
         @layout('testimonials')
             @include('partials.testimonials')
         @endlayout
@@ -71,6 +74,9 @@
         @endlayout
         @layout('limited_offer')
            @include('sections.limited-offer')
+        @endlayout
+        @layout('faq_section')
+            @include('blocks.faq-blocks')
         @endlayout
     @endlayouts
     </div>

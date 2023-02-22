@@ -1195,6 +1195,16 @@
           "color": "var(--darkerred)"
         },
         {
+          "name": "DarkerBlue",
+          "slug": "darkerblue",
+          "color": "var(--darkerblue)"
+        },
+        {
+          "name": "LightGray",
+          "slug": "lightgray",
+          "color": "var(--lightgray)"
+        },
+        {
           "name": "Text",
           "slug": "text",
           "color": "#333333"
@@ -1325,9 +1335,24 @@
           "size": "8rem"
         },
         {
+          "name": "smallParagraph",
+          "slug": "smallParagraph",
+          "size": "var(--default-small-p-size)"
+        },
+        {
           "name": "default",
           "slug": "default",
           "size": "var(--default-font-size)"
+        },
+        {
+          "name": "p",
+          "slug": "p",
+          "size": "var(--default-p-size)"
+        },
+        {
+          "name": "h1",
+          "slug": "h1",
+          "size": "var(--default-h1-size)"
         },
         {
           "name": "h2",
@@ -1335,9 +1360,44 @@
           "size": "var(--default-h2-size)"
         },
         {
-          "name": "h1",
-          "slug": "h1",
-          "size": "var(--default-h1-size)"
+          "name": "subheadingh2",
+          "slug": "subheadingh2",
+          "size": "var(--default-subheadingh2-size)"
+        },
+        {
+          "name": "h3",
+          "slug": "h3",
+          "size": "var(--default-h3-size)"
+        },
+        {
+          "name": "smallParagraphMob",
+          "slug": "smallParagraphMob",
+          "size": "var(--mob-small-p-size)"
+        },
+        {
+          "name": "defaultMob",
+          "slug": "defaultMob",
+          "size": "var(--mob-default-font-size)"
+        },
+        {
+          "name": "h1Mob",
+          "slug": "h1Mob",
+          "size": "var(--h1-mob-size)"
+        },
+        {
+          "name": "h2Mob",
+          "slug": "h2Mob",
+          "size": "var(--h2-mob-size)"
+        },
+        {
+          "name": "subheadingh2Mob",
+          "slug": "subheadingh2Mob",
+          "size": "var(--subheadingh2-mob-size)"
+        },
+        {
+          "name": "h3Mob",
+          "slug": "h3Mob",
+          "size": "var(--h3-mob-size)"
         },
         {
           "name": "4.5xl",

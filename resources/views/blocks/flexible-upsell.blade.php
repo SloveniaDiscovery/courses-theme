@@ -1,17 +1,15 @@
 @layouts('upsell_section')
+
 <div class="max-w-contentwidth m-auto">
-    @if(is_page_template( 'template-upsell_steps.blade.php' ) )
+@if(is_page_template( 'template-upsell_steps.blade.php' ) )
         @layout('text_content')
             @sub('text')
         @endlayout
-        @layout('main_headline')
+        @layout('heading')
             @sub('heading')
         @endlayout
-        @layout('subheading')
-            @sub('subheading')
-        @endlayout
         @layout('image')
-            <img class="my-8 mx-auto" src="@sub('image', 'url')" alt="">
+            <img class="max-w-[500px] my-8 mx-auto" src="@sub('image', 'url')" alt="">
         @endlayout
         @layout('dashed_box')
             @include('sections.dashed-box')
@@ -22,19 +20,15 @@
         @layout('guarantee_section')
             @include('partials.guarantee-upsell')
         @endlayout
-</div>
     @else
-        @layout('main_headline')
+        @layout('heading')
             @sub('heading')
-        @endlayout
-        @layout('subheading')
-            @sub('subheading')
         @endlayout
         @layout('text_content')
             @sub('text')
         @endlayout
         @layout('image')
-            <img class="my-8 mx-auto" src="@sub('image', 'url')" alt="">
+            <img class="max-w-[500px] my-8 mx-auto" src="@sub('image', 'url')" alt="">
         @endlayout
         @layout('no_thanks_button')
             @include('partials.no-thanks-button')
@@ -48,9 +42,13 @@
         @layout('testimonials')
             @include('partials.testimonials')
         @endlayout
-    @endif
+        @layout('guarantee_section')
+            @include('partials.guarantee-upsell')
+        @endlayout
+@endif
+</div>
     @layout('product_self_sort')
-        <section class="container mt-12">
+        <section class="mt-12">
             @include('sections.self-sorting_upsell')
         </section>
     @endlayout

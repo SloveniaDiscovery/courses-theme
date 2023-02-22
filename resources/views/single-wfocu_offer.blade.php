@@ -12,16 +12,13 @@ $link="?wfocu-accept-link=yes"
 @if($toggleBar2)
     @include('sections.second-upsell')
 @endif
-
 @if($toggleBar3)
     @include('sections.third-upsell')
 @endif
 <section class="container">
-    <div class="max-w-contentwidth m-auto">
         
     @include('blocks.flexible-upsell')
 
-    </div>
 </section>
 
 @endsection

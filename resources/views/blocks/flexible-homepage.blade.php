@@ -41,16 +41,14 @@
       @include('partials.center-aligned-button')
     </div>
   @endlayout
-  @layout('heading_h2')
+  @layout('heading')
     <div class="max-w-contentwidth m-auto">
-      <div class="text-black text-5xl font-normal mb-10">
-        @sub('homepage_heading_h2')
-      </div>
+        @sub('heading')
     </div>
   @endlayout
   @layout('image')
     <div class="flex justify-center my-4">
-      <img src=" @sub('homepage_image', 'url')"></img>
+      <img class="max-w-[500px] " src="@sub('homepage_image', 'url')"></img>
     </div>
   @endlayout
   @layout('testimonials')

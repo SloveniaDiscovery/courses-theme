@@ -30,9 +30,9 @@ $iframe_block = get_field('video_iframe_block', $testimonial);
         </div>
         @if($testimonial_headline)
         <div class="p-4 video-testimonial-head absolute bottom-0">
-            <h3 class="!leading-[2] text-[20px] font-bold rotate-[-1deg] max-w-[75%]">
+            <p class="!leading-[2] font-bold rotate-[-1deg] max-w-[75%]">
                 <span class="bg-white p-[6px] shadow-[1.5px_1.5pxpx_-2px_0_rgba(0,0,0,0.4)]"><?php echo $testimonial_headline ?></span>
-            </h3>
+            </p>
         </div>
         @endif
     </div>

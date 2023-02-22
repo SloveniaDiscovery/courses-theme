@@ -1,6 +1,6 @@
 <div class="max-w-contentwidth m-auto">
-    <div class="w-full text-center my-8">
-        <a href="?wfocu-reject-link=yes" class="mt-6 hover:!no-underline !underline text-black text-xl hover:text-hoverOrange">
+    <div class="w-full text-center my-10 flex justify-center">
+        <a href="?wfocu-reject-link=yes" class="hover:!no-underline !underline text-darkerBlue sm:!text-xl text-base hover:text-hoverOrange">
             @sub('no_thanks_button')
         </a>
     </div>

@@ -1,28 +1,23 @@
+{{--
+  Template Name: Generic checkout
+  Template Post Type: wfacp_checkout
+--}}
+
 @extends('layouts.app')
 @include('sections.top-bar-sales-white')
-
-
 <section class="max-w-pageWidth m-auto md:mt-10">
     <div class="flex flex-wrap">
         <div id="div-included" class="w-full md:!w-1/2 p-2">
-            <div class="shadow rounded p-4 bg-white">
-            @layouts('checkout_section')
-            @layout('product_info')
-                <h1 id="product-name"class="!text-3xl">
-                    @sub('product_title')
-                </h1>
-                <img class="mb-4 mt-4" src="@sub('product_image', 'url')"></img>
+            <!-- <div class="shadow rounded p-4 bg-white">
+                <h1 id="product-name"class="!text-3xl">{{$productNameCheckout}}</h1>
+                <img class="mb-4 mt-4" src="{{$productImageCheckout}}"></img>
                 <div class="flex justify-center text-base">
                     @include('partials.expert-informations')
                 </div>
-                <div id="what-you-get-checkout" class="product-perks mt-8">
-                    @sub('product_perks')
-                </div>
-            @endlayout
-            @endlayouts
-            </div>
-            <div class="product-checkout-choose mobile shadow relative z-10 mt-4 py-4 bg-white"></div>
-            <div id="shortcode-mini-cart" class="bg-white relative shadow md:!block rounded p-4 sm:p-0 mt-4">
+                <div id="what-you-get-checkout bg-white" class="product-perks mt-8">{!! $whatYouGetCheckout !!}</div>
+            </div> -->
+            <div class="product-checkout-choose mobile p-4 sm:p-0 bg-white"></div>
+            <div id="shortcode-mini-cart" class="p-4 sm:p-0 bg-white relative shadow md:!block rounded">
                 <?php $form_shortcode = "[wfacp_mini_cart]"; echo do_shortcode($form_shortcode)?>
             </div>
             <div id="testimonial" class="checkout-testimonials mt-4">
@@ -43,7 +38,7 @@
         <div class="md:!w-1/2 w-full p-2 ">
             <div id="checkout-timer" class="bg-black text-white p-4 flex items-center mb-4 mt-4 sm:mt-0 ">Your order is reserved for: @include('partials.countdown-checkout')
             </div>
-            <div class="product-checkout-choose desktop shadow relative z-10 mt-4 py-4 bg-white"></div>
+            <div class="product-checkout-choose desktop mt-4 py-4 bg-white"></div>
             <div id="shortcode-checkout">
                 @php(the_content())
             </div>
@@ -79,20 +74,20 @@
             </div>  
         </div>
     </div>
+
 <div id="faq" class=" w-full md:w-3/5 m-auto mt-20 mb-20 p-4">
-    @include('blocks.faq-blocks')
+    @include('blocks.faq-blocks')   
 </div>
 </section>
-
 <script>
-
 $(document).ready(function() {
     $("#fast-delivery").insertBefore("#payment");
+
     $("#wfacp_mini_cart_reviews_wfacp_form_summary_shortcode").insertAfter("#wfacp_mini_cart_items_wfacp_form_summary_shortcode");
     $(".wfacp-order-summary-label").text("Order Summary");
     // $(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertBefore("#wc-stripe-payment-request-wrapper");
     //$(".wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway").insertAfter("#shortcode-mini-cart");
-
+    $(".product-checkout-choose").hide();
     if ($(window).width() < 768) {
         if($('.wfacp_product_switcher_container').length) {
             $(".product-checkout-choose.mobile").show();
@@ -160,7 +155,7 @@ else if ($(window).width() > 767) {
         $('.wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway').slice(1).remove();
          /** IMAGE REVIEWS, LOGOS ON MOBILE BEFORE ORDER SUMMARY */
          $("#image-reviews").insertBefore("#testimonial");
-         if($('.wfacp_product_switcher_container').length) {
+            if($('.wfacp_product_switcher_container').length) {
                 $(".product-checkout-choose.mobile").show();
                 $(".product-checkout-choose.mobile").html($(".wfacp_product_switcher.wfacp_product_switcher"));
             } else {
@@ -181,6 +176,7 @@ else if ($(window).width() > 767) {
 		
 		/* ODSTRANI VSE BUMP WRAPPERJE RAZEN ENEGA - DA SE NE PODVAJAJO */
 		$('.wfob_bump_wrapper.woocommerce_checkout_order_review_below_payment_gateway').slice(1).remove();
+           
             if($('.wfacp_product_switcher_container').length) {
                 $(".product-checkout-choose.desktop").show();
                 $(".product-checkout-choose.desktop").html($(".wfacp_product_switcher.wfacp_product_switcher"));

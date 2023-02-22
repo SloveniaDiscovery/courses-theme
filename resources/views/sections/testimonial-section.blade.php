@@ -1,6 +1,5 @@
 <section class="mx-auto max-w-contentwidth">
-    <div class="mt-12">
-        {!! $testimonialContent !!}
+    <div class="my-12">
         @include('partials.testimonials')
     </div>
 </section>

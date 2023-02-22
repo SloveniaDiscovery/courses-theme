@@ -58,7 +58,10 @@ class FlexibleCheckout extends Block {
             ->setLocation('post_type', '==', 'wfacp_checkout')
             ->addFlexibleContent('checkout_section')
                 ->addLayout('product_info')
-                    ->addText('product_title')
+                    ->addText('product_title', [
+                        'label' => 'Product perks title',
+                        'instructions' => 'Product title or product includes',
+                    ])
                     ->addImage('product_image')
                     ->addWysiwyg('product_perks')
                 ->addLayout('testimonials')

@@ -56,7 +56,10 @@ class FlexiblePage extends Block {
         $content_page = new FieldsBuilder('content_page');
         $content_page
             ->setLocation('post_type', '==', 'page')
+                ->and('post_type', '!=', 'front_page')
             ->addFlexibleContent('page_section')
+                ->addLayout('heading')
+                    ->addWysiwyg('heading')
                 ->addLayout('text_block')
                     ->addWysiwyg('text_content')
                 ->addLayout('image')
@@ -65,9 +68,30 @@ class FlexiblePage extends Block {
                         ->addWysiwyg('headline')
                         ->addImage('image')
                         ->addImage('signature')
-                        ->addText('form_shortcode');
-
-                   
+                        ->addText('form_shortcode')
+                ->addLayout('testimonials')
+                    ->addPostObject('testimonials', [
+                        'post_type' => 'testimonials',
+                        'multiple' => 1,
+                        'return_format' => 'object',
+                        'ui' => 1,
+                ])
+                ->addLayout('video_testimonials')
+                    ->addPostObject('video_testimonials', [
+                        'post_type' => 'testimonials',
+                        'multiple' => 1,
+                        'return_format' => 'object',
+                        'ui' => 1,
+                    ])
+                ->addLayout('banner', [
+                    'description' => 'E-book banner for E-book page'
+                ])
+                    ->addImage('banner_image')
+                    ->addText('banner_small_text')
+                    ->addText('banner_subtitle')
+                    ->addText('banner_title')
+                    ->addText('banner_short_description')
+                    ->addText('banner_form_shortcode');
                     
 
         return $content_page->build();

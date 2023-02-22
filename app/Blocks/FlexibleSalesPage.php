@@ -56,6 +56,7 @@ class FlexibleSalesPage extends Block {
         $content = new FieldsBuilder('salespage_content');
         $content
             ->setLocation('post_type', '==', 'wffn_landing')
+            ->or('post_type', '==', 'wffn_optin')
             ->addFlexibleContent('salespage_sections')
                 ->addLayout('top_bar_to_midnight')
                     ->addText('top_bar_text')
@@ -70,11 +71,18 @@ class FlexibleSalesPage extends Block {
                     ->addText('top_bar_button_text')
                 ->addLayout('text_with_background')
                     ->addText('text_with_background_color')
-                ->addLayout('headline')
-                    ->addWysiwyg('main_heading_h1')
+                ->addLayout('main_heading')
+                    ->addWysiwyg('heading')
                 ->addLayout('subheading')
-                    ->addWysiwyg('sub_heading')
+                    ->addWysiwyg('subheading')
+                ->addLayout('heading')
+                    ->addWysiwyg('heading')
                 ->addLayout('product_preview')
+                    ->addDateTimePicker('timer', [
+                        'label' => 'Choose date for top bar timer',
+                        'date_format' => 'd/m/y',
+                        'display_format' => 'd/m/y',
+                    ])
                     ->addImage('product_image')
                     ->addText('promo_badge_text')
                     ->addText('product_title')
@@ -132,10 +140,8 @@ class FlexibleSalesPage extends Block {
                     ])
                 ->addLayout('yellow_box')
                     ->addFlexibleContent('yellow_box_flexible')
-                        ->addLayout('headline')
-                            ->addText('main_heading')
-                        ->addLayout('subheading')
-                            ->addWysiwyg('sub_heading')
+                        ->addLayout('heading')
+                            ->addWysiwyg('heading')
                         ->addLayout('text_with_background')
                             ->addText('text_with_background_color')
                         ->addLayout('text_content')
@@ -164,15 +170,12 @@ class FlexibleSalesPage extends Block {
                     ->addText('modal_form_shortcode')
                 ->addLayout('limited_offer')
                     ->addFlexibleContent('limited_offer_box')
-                        ->addLayout('headline')
-                            ->addText('main_heading')
-                        ->addLayout('subheading')
-                            ->addWysiwyg('sub_heading')
                         ->addLayout('text_content')
                             ->addWysiwyg('text')
                         ->addLayout('image')
                             ->addImage('image')
-                    ->endFlexibleContent();
+                    ->endFlexibleContent()
+                ->addLayout('faq_section');
              
                    
                     

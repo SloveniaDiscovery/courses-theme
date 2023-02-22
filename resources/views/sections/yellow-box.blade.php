@@ -1,10 +1,7 @@
-<div class="text-center border-dashed border-4 border-primary rounded-md p-4 sm:p-8 bg-secondary w-full">
+<div class="text-center border-dashed border-4 border-primary rounded-md p-4 sm:p-8 bg-[#FFFAF2] w-full my-5">
     @layouts('yellow_box_flexible')
-        @layout('headline')
-        <h2 class="!text-3xl md:!text-4xl">@sub('main_heading')</h2>
-        @endlayout
-        @layout('subheading')
-            <div class="text-2xl">@sub('sub_heading')</div>
+        @layout('heading')
+            @sub('heading')
         @endlayout
         @layout('text_with_background')
            @include('partials.red-text')
@@ -22,6 +19,9 @@
         @endlayout
         @layout('moving_button')
             @include('partials.button-buy')
+        @endlayout
+        @layout('moving_button_#2')
+            @include('partials.button-buy-box')
         @endlayout
         @layout('guarantee')
             @include('partials.satisfaction-guarantee')
