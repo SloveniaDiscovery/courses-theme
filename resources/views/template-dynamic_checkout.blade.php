@@ -60,19 +60,19 @@
             @endlayout
             @endlayouts
             </div>
-            <div id="shortcode-mini-cart" class="-mt-8 md:mt-0 p-0 md:p-4 relative md:!block">
+            <div id="shortcode-mini-cart" class="-mt-2 md:mt-0 p-0 md:p-4 relative md:!block">
                 <?php $form_shortcode = "[wfacp_mini_cart]"; echo do_shortcode($form_shortcode)?>
             </div>
         </div>
-        <div class="full-width my-12">
+        <div class="full-width my-12 ">
         @layouts('checkout_section')
             @layout('testimonials')
-            <div id="testimonial" class="checkout-testimonials mt-0 sm:mt-4">
+            <div id="testimonial" class="checkout-testimonials mt-0 sm:mt-4 p-2">
                 @include('partials.testimonials')
             @endlayout
             </div>
             @layout('review_images')
-            <div id="image-reviews" class="max-w-contentwidth m-auto">
+            <div id="image-reviews" class="max-w-contentwidth m-auto p-2">
                 <div class="bg-white my-1 md:my-12 flex items-center p-2 rounded-md shadow flex items-center justify-center flex-col md:flex-row">
                     @layouts('image_box')
                         @layout('award_image')

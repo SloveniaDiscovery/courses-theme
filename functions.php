@@ -1575,7 +1575,7 @@ display: none;
 
 		body .wfacp_main_form.woocommerce input[type=checkbox]:checked:before {
 			margin-top: -4px !important;
-			margin-left: -2px !important;
+			margin-left: -2px;
 		}
 
 		body .wfob_bump .wfob_contentBox ul li {
@@ -1648,7 +1648,7 @@ display: none;
 
 		body .wfacp_main_form.woocommerce input[type="checkbox"]:checked:before {
 			top: 30% !important;
-			width: 18px !important;
+			width: 18px;
 		}
 
 		body .wfacp_main_form.woocommerce input[type="radio"]:checked:before {
@@ -1950,6 +1950,7 @@ display: none;
 			display: flex !important;
 			align-items: center;
 			justify-content: flex-start;
+			padding-left: 30px;
 		}
 		@media(max-width: 768px) {
 			.dynamic-checkout  .wfacp_product_switcher_item  {
@@ -1973,6 +1974,21 @@ display: none;
 		}
 		.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item {
 			border: 1px solid #ddd;
+		}
+		.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item .wfacp_switcher_checkbox {
+			height: 25px !important;
+			width: 25px !important;
+		}
+		@media(min-width: 767px) {
+			.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item .wfacp_switcher_checkbox {
+				margin-top: 7px !important;
+			}
+		}
+		.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item .wfacp_switcher_checkbox:before {
+			width: 28px !important;
+			height: 25px !important;
+			font-size: 19px !important;
+			margin-left: 2px !important;
 		}
 		.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item .wfacp_row_wrap {
 			position: relative;
@@ -2126,12 +2142,12 @@ display: none;
 		}
 		@media(max-width: 992px) {
 			.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 .wfob_l3_s_desc {
-				margin-top: 260px !important;
+				margin-top: 270px !important;
 				padding: 0px 20px !important;
 				width: 100% !important;
 			}
 			.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 .wfob_l3_s_img {
-				margin-top: 100px;
+				margin-top: 110px;
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -2253,6 +2269,9 @@ display: none;
 		}
 		body .form-row#shipping_state_field {
 			width: 100% !important;
+		}
+		.dynamic-checkout .wfacp_coupon_row .form-row {
+			padding-right: 0px !important;
 		}
 	</style>
 	<?php

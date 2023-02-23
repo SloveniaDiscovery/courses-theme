@@ -7,11 +7,11 @@ $testimonial_style = get_field('testimonial_style', $testimonial);
 $testimonial_link = get_field('testimonial_link', $testimonial);
 ?>
 @if((is_page_template( 'template-dynamic_checkout.blade.php' ) ))
-<div class="inline-flex bg-white mt-5 rounded-md">
+<div class="inline-flex bg-white mb-5 rounded-md">
 @else
-<div class="inline-flex bg-white">
+<div class=" bg-white">
   @endif
-    <div class=" p-6 shadow rounded-lg">
+    <div class="inline-grid  p-6 shadow rounded-lg">
         <div class="flex relative mb-5 items-center w-full ">
             @if($testimonial_image)
               <img class="rounded-full mr-2 h-14 w-14 object-cover" src="<?php echo $testimonial_image['url']; ?>">
@@ -44,7 +44,7 @@ $testimonial_link = get_field('testimonial_link', $testimonial);
             @if($testimonial_style=="Google")
             <div class="flex justify-end w-full">
               @if($testimonial_link)
-                <a href="<?php echo ($testimonial_link["url"]); ?>">
+                <a target="_blank" href="<?php echo ($testimonial_link["url"]); ?>">
                   <img class= "h-6" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/google-logo.jpg' ) ); ?>"></img>
                 </a>
               @else 
@@ -54,7 +54,7 @@ $testimonial_link = get_field('testimonial_link', $testimonial);
             @elseif($testimonial_style=="Facebook")
             <div class="flex justify-end w-full">
               @if($testimonial_link)
-                <a href="<?php echo ($testimonial_link["url"]); ?>">
+                <a target="_blank" href="<?php echo ($testimonial_link["url"]); ?>">
                   <img class= "h-6" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/facebook-logo.jpg' ) ); ?>"></img>
                 </a>
               @else 
@@ -64,7 +64,7 @@ $testimonial_link = get_field('testimonial_link', $testimonial);
             @elseif($testimonial_style=="Tripadvisor")
             <div class="flex justify-end w-full">
               @if($testimonial_link)
-                <a href="<?php echo ($testimonial_link["url"]); ?>">
+                <a target="_blank" href="<?php echo ($testimonial_link["url"]); ?>">
                   <img class= "h-6" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/trustpilot-logo.png' ) ); ?>"></img>
                 </a>
               @else 

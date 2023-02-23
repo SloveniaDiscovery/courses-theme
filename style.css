@@ -727,6 +727,10 @@ h2.sub-heading {
   margin-top: 2px;
 }
 
+.-mt-2 {
+  margin-top: -0.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -753,6 +757,10 @@ h2.sub-heading {
 
 .grid {
   display: grid;
+}
+
+.inline-grid {
+  display: inline-grid;
 }
 
 .contents {
@@ -4173,6 +4181,10 @@ li:has(> .gift-bullet)::before {
 
   .md\:\!pr-4 {
     padding-right: 1rem !important;
+  }
+
+  .md\:pr-4 {
+    padding-right: 1rem;
   }
 
   .md\:text-xl {

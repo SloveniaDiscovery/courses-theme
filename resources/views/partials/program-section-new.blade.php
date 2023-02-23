@@ -1,11 +1,14 @@
 <div class="flex flex-wrap md:mt-16">
-    @hassub('product_image')
-    <div class="md:!w-1/2 w-full md:!mb-0 mb-14">
-        <img class="w-full" src="@sub('product_image', 'url')"></img>
+    
+    <div class="md:!w-1/2 w-full md:!mb-0 mb-14 md:pr-4">
+        @hassub('product_image')
+            <img class="w-full" src="@sub('product_image', 'url')"></img>
+        @endsub
+        @hassub('embed_code')
+            @sub('embed_code')
+        @endsub
         @include('partials.expert-info')
     </div>
-    @endsub
-    
     <div class="md:!w-1/2 w-full relative">
     @hassub('product_title')
     <div id="product-info" class="border-4 border-black !rounded-lg border-t-40 relative">

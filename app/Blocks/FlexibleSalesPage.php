@@ -84,6 +84,11 @@ class FlexibleSalesPage extends Block {
                         'display_format' => 'd/m/y',
                     ])
                     ->addImage('product_image')
+                    ->addWysiwyg('embed_code', [
+                        'label' => 'Embed code',
+                        'instructions' => 'Enter code to embed (choose "text" tab in editor)',
+                        'required' => 0,
+                    ])
                     ->addText('promo_badge_text')
                     ->addText('product_title')
                     ->addWysiwyg('product_includes')
