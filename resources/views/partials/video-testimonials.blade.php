@@ -1,3 +1,4 @@
+<!-- SHOW CHOSEN VIDEO TESTIMONIALS (CPT) FROM SUB FIELD video_testimonials -->
 
 <section class="mx-auto sm:max-w-contentwidth">
     <div class="mt-2 mb-12">

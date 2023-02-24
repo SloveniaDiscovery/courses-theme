@@ -1,3 +1,6 @@
+<!-- TOP BANNER - UPSELL TEMPLATE IF TOGGLE BAR 2
+    Fields are specified in app/Blocks/FlexibleUpsell.php
+-->
 <section class=" w-full m-auto bg-third h-auto pt-4 mb-10">
     <div class="container">
         @include('partials.progress-bar-second-upsell')

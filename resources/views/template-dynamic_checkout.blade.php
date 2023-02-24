@@ -74,6 +74,7 @@
             @layout('review_images')
             <div id="image-reviews" class="max-w-contentwidth m-auto p-2">
                 <div class="bg-white my-1 md:my-12 flex items-center p-2 rounded-md shadow flex items-center justify-center flex-col md:flex-row">
+                <div class="flex">    
                     @layouts('image_box')
                         @layout('award_image')
                             <img class=" h-12 mr-4 ml-2" src="@sub('image', 'url')"></img>
@@ -81,7 +82,10 @@
                         @layout('satisfied_customers')
                             @include('partials.satisfied-customers')
                         @endlayout
-                    
+                
+                    @endlayouts
+                    </div>
+                    @layouts('image_box')
                         @layout('review_image')
                             <img class=" h-10 ml-4" src="@sub('image', 'url')"></img>
                         @endlayout

@@ -1,3 +1,4 @@
+<!-- AUTHOR TEMPLATE PAGE LOOK-->
 <section class="flex container my-16 flex-col md:flex-row">
     <div x-ref="leftDiv" x-data="{  headings: Array.from(document.getElementById('content').querySelectorAll('h2, h3, h4')), prevOffset: window.pageYOffset,
         top:$refs.quicklinks.offsetTop - window.pageYOffset, 

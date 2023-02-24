@@ -1,9 +1,15 @@
 <?php
-        $post_object = get_field('selected_product');
-        $price = get_post_meta( $post_object -> ID, '_regular_price', true);
-        $price_sales = get_post_meta( $post_object -> ID, '_sale_price', true);
-        $price_total=($price - $price_sales) / $price * 100;
-        $format_number1 = number_format($price_total, 0);?>
+/**
+ * Button specified as 'Moving Button #2'
+ * used in yellow box template
+ * Yellow box fields are specified in app/Blocks/FlexibleSalespage.php & app/Blocks/FlexibleUpsell.php
+ * 
+ */
+$post_object = get_field('selected_product');
+$price = get_post_meta( $post_object -> ID, '_regular_price', true);
+$price_sales = get_post_meta( $post_object -> ID, '_sale_price', true);
+$price_total=($price - $price_sales) / $price * 100;
+$format_number1 = number_format($price_total, 0);?>
 
 
 <div class="flex justify-center items-center flex-col">

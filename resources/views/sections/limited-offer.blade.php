@@ -1,4 +1,6 @@
-
+<!-- BOX WITH DASHED RED BORDER - SALES PAGE
+    Fields are specified in app/Blocks/FlexibleSalesPage.php
+-->
 <section class=" justify-center max-w-contentwidth mx-auto mb-10 ">
     <div class="border-dashed border-4 border-borderColorRed rounded-t-full bg-[#FFF6F6] p-4 w-fit mx-auto -mb-1 border-b-0	sticky h-3/6">
         <img class="h-16" src="<?php echo esc_url( get_theme_file_uri( '/resources/assets/images/limited-time-offer.png' ) ); ?>"></img>    

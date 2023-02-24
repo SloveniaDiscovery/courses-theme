@@ -1,3 +1,8 @@
+<?php 
+/* Currently not in use 
+* Moving button with defined text
+*/
+?>
 <button id="moving-buy-button" class="relative block  md:w-1/2  text-center cursor-pointer" onclick="toggleModal('modal-id')">
       <!-- black background shadow -->
       <!-- text -->

@@ -3942,6 +3942,10 @@ li:has(> .gift-bullet)::before {
     display: block !important;
   }
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:flex {
     display: flex;
   }

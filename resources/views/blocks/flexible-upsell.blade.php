@@ -1,3 +1,8 @@
+<?php 
+/* Flexible content used for checkout, rendering fields on front-end 
+*   use @layout from app/Blocks/FlexibleUpsell.php, get subfields as @sub 
+*/ 
+?>
 @layouts('upsell_section')
 
 <div class="max-w-contentwidth m-auto">
@@ -9,7 +14,7 @@
             @sub('heading')
         @endlayout
         @layout('image')
-            <img class="max-w-[500px] my-8 mx-auto" src="@sub('image', 'url')" alt="">
+            <img class="max-w-[500px] w-full my-8 mx-auto" src="@sub('image', 'url')" alt="">
         @endlayout
         @layout('dashed_box')
             @include('sections.dashed-box')
@@ -28,7 +33,7 @@
             @sub('text')
         @endlayout
         @layout('image')
-            <img class="max-w-[500px] my-8 mx-auto" src="@sub('image', 'url')" alt="">
+            <img class="max-w-[500px] w-full my-8 mx-auto" src="@sub('image', 'url')" alt="">
         @endlayout
         @layout('no_thanks_button')
             @include('partials.no-thanks-button')

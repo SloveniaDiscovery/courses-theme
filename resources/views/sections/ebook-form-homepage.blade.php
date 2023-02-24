@@ -1,3 +1,6 @@
+<!-- EBOOK FORM ON BOTTOM OF HOMEPAGE 
+    Fields are specified in app/Blocks/FlexibleHomepage.php
+-->
 <section class="bg-lightYellow my-14 mx-auto max-w-4xl rounded-xl homepage--second-ebook">
     <div class="flex flex-wrap">
         <div class="md:!w-1/2 w-full md:!mb-0 mb-10 flex justify-center pt-6 sm:py-6">

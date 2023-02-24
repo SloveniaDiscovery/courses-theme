@@ -1,5 +1,5 @@
-<div class="flex flex-wrap md:mt-16">
-    
+<!-- FIRST SECTION ON SALES PAGE -->
+<div class="flex flex-wrap md:mt-16">  
     <div class="md:!w-1/2 w-full md:!mb-0 mb-14 md:pr-4">
         @hassub('product_image')
             <img class="w-full" src="@sub('product_image', 'url')"></img>

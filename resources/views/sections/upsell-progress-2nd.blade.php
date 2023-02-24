@@ -1,3 +1,4 @@
+<!-- TOP BAR STEPS ON STEPS TEMPLATE - UPSELL -->
 <section class="container w-full">
     <div class="max-w-contentwidth m-auto my-4 text-sm ">
         <div class="step flex align-center flex-row w-72 m-auto">

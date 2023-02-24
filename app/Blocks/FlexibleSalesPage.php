@@ -47,7 +47,7 @@ class FlexibleSalesPage extends Block {
     }
 
     /**
-     * The block field group.
+     * The function `fields()` returns flexible content layout on sales pages => wffn_landing, wffn_optin
      *
      * @return array
      */

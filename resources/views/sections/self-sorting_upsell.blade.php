@@ -1,17 +1,19 @@
-
-    <div class="max-w-contentwidth mx-auto text-center">
-    @layouts('card_section')
-        @layout('heading')
-            @sub('heading')
-        @endlayout
-        @layout('text_block')
-            <div class="font-semibold py-4 paragraph-no-margin">
-                @sub('text_block_wysiwyg')
-            </div>
-        @endlayout
-    @endlayouts
-        @include('partials.countdown-upsell-alpine-white')
-    </div>
+<!-- SELF SORTING TEMPLATE - UPSELL 
+    Fields are specified in app/Blocks/FlexibleUpsell.php
+-->
+<div class="max-w-contentwidth mx-auto text-center">
+@layouts('card_section')
+    @layout('heading')
+        @sub('heading')
+    @endlayout
+    @layout('text_block')
+        <div class="font-semibold py-4 paragraph-no-margin">
+            @sub('text_block_wysiwyg')
+        </div>
+    @endlayout
+@endlayouts
+    @include('partials.countdown-upsell-alpine-white')
+</div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-4 lg:gap-8 mt-12 mb-20 sm:mt-20 max-w-4xl mx-auto ">
 @layouts('card_section')

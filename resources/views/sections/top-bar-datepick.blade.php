@@ -1,3 +1,4 @@
+<!-- TOP BAR WITH TIMER to date -> DATE PICKER FIELD 'timer' + STORE INFO-->
 @if($phoneNumber)
 <header class="bg-black sticky top-0 z-50 top-bar-countdown">
     <div class="w-full p-2 items-center flex justify-between mx-auto max-w-pageWidth">

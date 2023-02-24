@@ -1,3 +1,4 @@
+<!-- DATE PICKER TIMER  -->
 <div class="text-xs text-gray-500">
   <div class="countdown ml-4 absolute -top-[25px] right-0 flex">
       <div class="countdown-number">
@@ -18,6 +19,7 @@
       </div>
     </div>
 </div>
+<!-- DATE PICKER FIELD  -->
 <?php $date = get_sub_field('timer'); ?>
 
 <script>

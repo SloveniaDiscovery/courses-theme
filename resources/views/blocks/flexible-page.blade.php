@@ -1,3 +1,8 @@
+<?php 
+/* Flexible content used for pages, rendering fields on front-end 
+*   use @layout from app/Blocks/FlexiblePage.php, get subfields as @sub 
+*/ 
+?>
 @if(is_page_template( 'template-author.blade.php' )) 
     @include('sections.author-content')
 @elseif(is_page_template( 'template-reviews.blade.php'))

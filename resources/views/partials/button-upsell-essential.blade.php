@@ -1,4 +1,10 @@
 <?php
+/**
+ * Button used in upsell template - self-sorting section, first product, on the left
+ * 
+ * fields are specified in app/Blocks/FlexibleUpsell.php
+ * 
+ */
     $upsell_product = get_sub_field('select_product');
     $price = get_post_meta( $upsell_product -> ID, '_regular_price', true);
     $price_sales = get_post_meta( $upsell_product -> ID, '_sale_price', true);

@@ -1,3 +1,8 @@
+<?php 
+/* Flexible content used for checkout, rendering fields on front-end 
+*   use @layout from app/Blocks/FlexibleCheckout.php, get subfields as @sub 
+*/ 
+?>
 <div class="shadow rounded p-4 md:p-8">
     <div class=" mx-auto flex flex-col items-center w-fit  align-center">
         <div class="flex items-center mb-2 object-cover">

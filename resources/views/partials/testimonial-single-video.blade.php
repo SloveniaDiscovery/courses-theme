@@ -1,4 +1,5 @@
-<?php
+<?php 
+/** SINGLE TESTIMONIALS FIELDS - VIDEO TESTIMONIALS*/
 $testimonial_name = get_field('testimonial_name', $testimonial);
 $testimonial_image = get_field('testimonial_image', $testimonial);
 $testimonial_video_image = get_field('testimonial_video_image', $testimonial);
@@ -7,6 +8,7 @@ $testimonial_link = get_field('testimonial_link', $testimonial);
 $iframe = get_field('embed_video_link', $testimonial);
 $iframe_block = get_field('video_iframe_block', $testimonial);
 ?>
+<!-- SINGLE TESTIMONIAL VIEW - CARDS-->
 <div class="relative mb-0 md:mb-12">
     <div class="video-testimonial shadow rounded-lg relative" style="background-image: url('<?php echo $testimonial_video_image['url']; ?>'); ">
         <div class="p-6 video-background rounded-lg">

@@ -1,3 +1,4 @@
+<!-- TIMER USED ON CHECKOUT PAGE -->
 <div id="checkouts" class="ml-4 countdown">
   <div class="countdown-number">
     <span class="minutes countdown-time"></span>

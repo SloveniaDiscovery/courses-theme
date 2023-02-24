@@ -1,6 +1,8 @@
 <?php 
+/* WP query for getting FAQs (custom post type) 
+*   use @layout from app/Blocks/FAQBlocks.php, get subfields as @sub 
+*/
 
-// args
 $args = array(
     'posts_per_page'   => -1,
     'post_type'     => 'faq',

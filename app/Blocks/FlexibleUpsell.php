@@ -48,7 +48,7 @@ class FlexibleUpsell extends Block {
    
 
     /**
-     * The block field group.
+     * The function `fields()` returns flexible content layout on upsell pages => wfocu_offer
      *
      * @return array
      */

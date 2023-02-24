@@ -1,3 +1,4 @@
+<!-- TIMER USED ON SALES PAGE -->
 <div class="text-xs text-gray-500" x-data x-init="setInterval(() => {
   const now = new Date();
   const timezoneOffset = +7;  // US Eastern timezone offset

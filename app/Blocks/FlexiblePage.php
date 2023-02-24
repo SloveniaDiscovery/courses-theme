@@ -47,7 +47,7 @@ class FlexiblePage extends Block {
     }
 
     /**
-     * The block field group.
+     * The function `fields()` returns flexible content layout on pages
      *
      * @return array
      */

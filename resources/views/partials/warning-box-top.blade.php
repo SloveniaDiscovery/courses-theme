@@ -1,3 +1,4 @@
+<!-- WARNING BOX ON UPSELL TEMPLATE -->
 <div class="border-red-500 border-2 w-full p-8 mt-10 mb-10  max-w-contentwidth m-auto text-xl">
 <?php
 $customer_id = get_current_user_id();

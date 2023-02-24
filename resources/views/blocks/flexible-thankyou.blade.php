@@ -1,3 +1,8 @@
+<?php 
+/* Flexible content used for thankyou pages, rendering fields on front-end 
+*   use @layout from app/Blocks/FlexibleThankYouPage.php, get subfields as @sub 
+*/ 
+?>
 <section class="max-w-pageWidth m-auto p-4 my-12">
 @layouts('thankyou_sections')
     @layout('heading')

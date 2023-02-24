@@ -1,3 +1,8 @@
+<?php 
+/* Flexible content used for sales pages, rendering fields on front-end 
+*   use @layout from app/Blocks/FlexibleSalesPage.php, get subfields as @sub 
+*/ 
+?>
 @layouts('salespage_sections')
     @layout('top_bar_to_midnight')
         @include('sections.top-bar-sales')    

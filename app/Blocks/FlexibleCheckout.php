@@ -47,7 +47,7 @@ class FlexibleCheckout extends Block {
     }
 
     /**
-     * The block field group.
+     * The function `fields()` returns flexible content layout on Checkout page -> wfacp_checkout
      *
      * @return array
      */

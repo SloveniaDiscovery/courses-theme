@@ -47,7 +47,7 @@ class FAQblocks extends Block {
     }
 
     /**
-     * The block field group.
+     * The function `fields()` returns flexible content layout on FAQ custom post type
      *
      * @return array
      */

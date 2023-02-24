@@ -1,3 +1,4 @@
+<!-- E-BOOK BANNER WITH FORM  -->
 <section class="bg-lightOrange md:py-20 py-10 rounded-bl-[15%] rounded-br-[15%]">
     <div class="flex flex-wrap mx-auto container">
         <div class="md:!w-1/2 w-full md:!mb-0 mb-10">

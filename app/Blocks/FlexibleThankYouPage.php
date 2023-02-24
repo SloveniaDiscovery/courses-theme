@@ -47,7 +47,7 @@ class FlexibleThankYouPage extends Block {
     }
 
     /**
-     * The block field group.
+     * The function `fields()` returns flexible content layout on thankyou pages => wffn_ty
      *
      * @return array
      */

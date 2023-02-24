@@ -1,3 +1,6 @@
+<!-- BOX WITH BACKGROUND - UPSELL TEMPLATE + SALES
+    Fields are specified in app/Blocks/FlexibleUpsell.php & app/Blocks/FlexibleSalesPage.php
+-->
 <div class="text-center border-dashed border-4 border-primary rounded-md p-4 sm:p-8 bg-[#FFFAF2] w-full my-5">
     @layouts('yellow_box_flexible')
         @layout('heading')

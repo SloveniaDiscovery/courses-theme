@@ -1,3 +1,9 @@
+<?php 
+/* Flexible content used for homepage, rendering fields on front-end 
+*   use @layout from app/Blocks/FlexibleHomepage.php, get subfields as @sub 
+*/ 
+?>
+
 @layouts('homepage_sections')
     @layout('banner')
       @include('partials.ebook-form')
@@ -48,7 +54,7 @@
   @endlayout
   @layout('image')
     <div class="flex justify-center my-4">
-      <img class="max-w-[500px] " src="@sub('homepage_image', 'url')"></img>
+      <img class="max-w-[500px] w-full" src="@sub('homepage_image', 'url')"></img>
     </div>
   @endlayout
   @layout('testimonials')

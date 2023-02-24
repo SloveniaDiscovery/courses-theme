@@ -1,4 +1,10 @@
 <?php
+/**
+ * Button specified as 'Moving Button'
+ * used in yellow box template, dashed box template
+ * Yellow box fields are specified in app/Blocks/FlexibleSalespage.php & app/Blocks/FlexibleUpsell.php
+ * 
+ */
         $post_object = get_field('selected_product');
         $price = get_post_meta( $post_object -> ID, '_regular_price', true);
         $price_sales = get_post_meta( $post_object -> ID, '_sale_price', true);

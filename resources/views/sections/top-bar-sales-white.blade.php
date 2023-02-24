@@ -1,3 +1,4 @@
+<!-- TOP BAR WITH STORE INFO -->
 @if( is_front_page() )
 <header class="bg-white relative z-50 w-full">
     <div class="w-full p-2 items-center flex justify-center md:justify-between mx-auto max-w-pageWidth">

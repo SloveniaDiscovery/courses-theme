@@ -1,5 +1,5 @@
 <?php 
-
+/** WP QUERY FOR SHOWING SALES PAGES ON HOMEPAGE -> Optin pages */
 // args
 $args = array(
     'posts_per_page'   => -1,

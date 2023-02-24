@@ -1,3 +1,5 @@
+<!-- SIDEBAR ON AUTHOR PAGE -->
+
 <div class="flex w-full shadow rounded-xl p-6 sticky md:mt-0 items-start flex-col" x-ref="quicklinks" :style="'top:'.concat(offset).concat('px')" @scroll.window="if(bottom > -20 && top < 61 && prevOffset < window.pageYOffset || prevOffset > window.pageYOffset && bottomDiv > 0 && top < 60 ){offset += prevOffset - window.pageYOffset };
 if(window.pageYOffset < initialPosition){offset = 60};
 if(offset > 90){offset = 90};

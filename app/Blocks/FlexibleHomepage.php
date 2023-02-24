@@ -48,7 +48,7 @@ class FlexibleHomepage extends Block
     }
 
     /**
-     * The block field group.
+     * The function `fields()` returns flexible content layout on homepage
      *
      * @return array
      */
