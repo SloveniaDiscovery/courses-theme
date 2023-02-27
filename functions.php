@@ -1059,3 +1059,4 @@ function add_credit_card_gateway_icons( $icon_string, $gateway_id ) {
 }
 
 add_filter( 'woocommerce_gateway_icon', 'add_credit_card_gateway_icons', 10, 2 );
+

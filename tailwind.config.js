@@ -84,6 +84,7 @@ module.exports = {
         rocking: "rocking 2s infinite",
         wiggle: "wiggle 2s ease-in-out infinite",
       },
+
     },
   },
   plugins: [],

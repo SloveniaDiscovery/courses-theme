@@ -5,8 +5,8 @@
     $testimonials = get_sub_field('testimonials');
     if( $testimonials ): ?>
     @if((is_page_template( 'template-dynamic_checkout.blade.php' ) ))
-    <div class="max-w-pageWidth my-1 md:!my-12">
-        <div class="sm:columns-2 md:columns-3  gap-5">
+    <div class="max-w-pageWidth my-1 lg:!my-12">
+        <div class="sm:columns-2 lg:columns-3  gap-5">
             <?php 
                 foreach( $testimonials as $testimonial ): ?>
                 @include('partials.testimonial-single')

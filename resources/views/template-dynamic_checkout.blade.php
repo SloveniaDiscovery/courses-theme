@@ -6,9 +6,9 @@
 @extends('layouts.app')
 @include('sections.top-bar-checkout-black')
 <div class="bg-[#F3F3F3] dynamic-checkout">
-<section class="max-w-pageWidth m-auto md:pt-10 bg-[#F3F3F3]">
+<section class="max-w-contentwidth lg:!max-w-pageWidth  m-auto lg:pt-10 bg-[#F3F3F3]">
     <div class="flex flex-wrap">
-        <div id="div-included" class="w-full md:!w-1/2 p-2">
+        <div id="div-included" class="w-full lg:!w-1/2 p-2">
             <div class="product-checkout-choose desktop relative"></div>
             <div id="shortcode-checkout" >
             <div class="product-checkout-choose mobile relative sm:p-0"></div>
@@ -45,22 +45,23 @@
             </div>  
            
         </div>
-        <div class="md:!w-1/2 w-full p-2 ">
+        <div class="lg:!w-1/2 w-full p-2 ">
        
             <div class="rounded p-4" id="product-perks">
             @layouts('checkout_section')
             @layout('product_info')
-                <img class="mb-4 mt-4" src="@sub('product_image', 'url')"></img>
-                <h3 id="product-title" class="!text-[20px] !font-medium">
+                <img class="mb-4 mt-4 hidden w-9/12	m-auto lg:block" src="@sub('product_image', 'url')"></img>
+                <h3 id="product-title" class=" -ml-4 lg:ml-0 !text-[20px] !font-medium">
                     @sub('product_title')
                 </h3>
+                <img class="mb-4 mt-4 block sm:w-9/12 m-auto lg:hidden" src="@sub('product_image', 'url')"></img>
                 <div id="what-you-get-checkout" class="product-perks mt-8">
                     @sub('product_perks')
                 </div>
             @endlayout
             @endlayouts
             </div>
-            <div id="shortcode-mini-cart" class="-mt-2 md:mt-0 p-0 md:p-4 relative md:!block">
+            <div id="shortcode-mini-cart" class="-mt-2 lg:mt-0 p-0 lg:p-4 relative lg:!block">
                 <?php $form_shortcode = "[wfacp_mini_cart]"; echo do_shortcode($form_shortcode)?>
             </div>
         </div>
@@ -73,7 +74,7 @@
             </div>
             @layout('review_images')
             <div id="image-reviews" class="max-w-contentwidth m-auto p-2">
-                <div class="bg-white my-1 md:my-12 flex items-center p-2 rounded-md shadow flex items-center justify-center flex-col md:flex-row">
+                <div class="bg-white my-1 lg:my-12 flex items-center p-2 rounded-md shadow flex items-center justify-center flex-col lg:flex-row">
                 <div class="flex">    
                     @layouts('image_box')
                         @layout('award_image')
@@ -97,7 +98,7 @@
         </div>
     </div>
 
-<div id="faq" class=" w-full md:w-3/5 m-auto mt-20 mb-20 p-4">
+<div id="faq" class=" w-full lg:w-3/5 m-auto mt-20 mb-20 p-4">
     @include('blocks.faq-blocks')   
 </div>
 </section>
@@ -106,12 +107,11 @@
 
 $(document).ready(function() {
  
-    $("#wc-stripe-payment-request-wrapper").insertBefore("#wc-stripe-payment-request-button-separator");
-    $("#wc-stripe-payment-request-button-separator").insertBefore(".wfacp-section.wfacp_payment");
+
     $(".wfacp-order-summary-label").text("Order Summary");
     $("#wfacp_mini_cart_reviews_wfacp_form_summary_shortcode").insertAfter("#wfacp_mini_cart_items_wfacp_form_summary_shortcode");
 
-    if ($(window).width() < 768) {
+    if ($(window).width() < 1024) {
         $(".checkout-desktop").hide();
 
         if($('.wfacp_product_switcher_container').length) {
@@ -124,7 +124,7 @@ $(document).ready(function() {
         $("#wc-stripe-payment-request-wrapper").insertAfter("#shortcode-mini-cart");
         $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
 
-    } else if ($(window).width() > 768) {
+    } else  {
         $(".checkout-mob").hide();
 
         if($('.wfacp_product_switcher_container').length) {
@@ -133,6 +133,8 @@ $(document).ready(function() {
         } else {
             $(".product-checkout-choose").hide();
         }
+        $("#wc-stripe-payment-request-wrapper").insertBefore("#wc-stripe-payment-request-button-separator");
+        $("#wc-stripe-payment-request-button-separator").insertBefore(".wfacp-section.wfacp_payment");
     }
 })
 $(document.body).on('updated_checkout', function () {
@@ -147,7 +149,7 @@ $(document.body).on('updated_checkout', function () {
     
   
 });
-if ($(window).width() < 768) {
+if ($(window).width() < 1024) {
         $("#checkout-timer").insertBefore("#shortcode-checkout");
         $("#product-perks").insertAfter(".product-checkout-choose.mobile");
 
@@ -158,17 +160,18 @@ if ($(window).width() < 768) {
         $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
 	}
 	
-else if ($(window).width() > 767) {
+else {
         $(".product-checkout-choose.desktop").insertAfter(".wfacp-hg-by-box.step_0");
         $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertAfter("#shortcode-mini-cart");
         /* PRESTAVI GOOGLE/APPLE PAY POD BUY BUTTON > 767PX */
 		$("#wc-stripe-payment-request-wrapper").insertBefore(".wfacp-section.wfacp_payment");
         $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
+
        
 	}
     $(document).ready(function() {
         $(window).resize(function() {
-    if ($(window).width() < 768) {
+    if ($(window).width() < 1024) {
         $(".checkout-mob").hide();
         
         $("#checkout-timer").insertBefore("#shortcode-checkout");
@@ -191,7 +194,7 @@ else if ($(window).width() > 767) {
             }
 	}
 	
-	else if ($(window).width() > 767) {
+	else  {
 
         $(".checkout-mob").hide();
         $(".product-checkout-choose.desktop").insertAfter(".wfacp-hg-by-box.step_0");
@@ -215,14 +218,7 @@ else if ($(window).width() > 767) {
 	}
   });
 })
-$(document).ready(function() {
 
-    if ($('.wfob_btn_remove').hasClass('wfob_item_present')) {
-        $('.wfob_btn_remove').closest('.wfob_bump').addClass('newClass');
-
-
-    }
-})
 </script>
 
 @include('sections.before-footer')
