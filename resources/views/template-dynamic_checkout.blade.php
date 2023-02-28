@@ -14,6 +14,9 @@
             <div class="product-checkout-choose mobile relative sm:p-0"></div>
                 @php(the_content())
             </div>
+            <div id="shortcode-mini-cart" class="-mt-2 lg:mt-10 p-0  relative lg:!block">
+                <?php $form_shortcode = "[wfacp_mini_cart]"; echo do_shortcode($form_shortcode)?>
+            </div>
             <div id="fast-delivery" class="flex items-stretch mb-4">
                 <!-- <div class="h-10">
                     @include('icons.clock')
@@ -45,25 +48,22 @@
             </div>  
            
         </div>
-        <div class="lg:!w-1/2 w-full p-2 ">
-       
+        <div class="lg:!w-1/2 w-full p-2" id="right-checkout">
             <div class="rounded p-4" id="product-perks">
             @layouts('checkout_section')
             @layout('product_info')
-                <img class="mb-4 mt-4 hidden w-9/12	m-auto lg:block" src="@sub('product_image', 'url')"></img>
+                <img class="mb-4 mt-4 hidden w-1/2 m-auto lg:!block" src="@sub('product_image', 'url')"></img>
                 <h3 id="product-title" class=" -ml-4 lg:ml-0 !text-[20px] !font-medium">
                     @sub('product_title')
                 </h3>
-                <img class="mb-4 mt-4 block sm:w-9/12 m-auto lg:hidden" src="@sub('product_image', 'url')"></img>
+                <img class="mb-4 mt-4 block sm:w-9/12 m-auto lg:!hidden" src="@sub('product_image', 'url')"></img>
                 <div id="what-you-get-checkout" class="product-perks mt-8">
                     @sub('product_perks')
                 </div>
             @endlayout
             @endlayouts
             </div>
-            <div id="shortcode-mini-cart" class="-mt-2 lg:mt-0 p-0 lg:p-4 relative lg:!block">
-                <?php $form_shortcode = "[wfacp_mini_cart]"; echo do_shortcode($form_shortcode)?>
-            </div>
+            
         </div>
         <div class="full-width my-12 ">
         @layouts('checkout_section')
@@ -104,39 +104,6 @@
 </section>
 </div>
 <script>
-
-$(document).ready(function() {
- 
-
-    $(".wfacp-order-summary-label").text("Order Summary");
-    $("#wfacp_mini_cart_reviews_wfacp_form_summary_shortcode").insertAfter("#wfacp_mini_cart_items_wfacp_form_summary_shortcode");
-
-    if ($(window).width() < 1024) {
-        $(".checkout-desktop").hide();
-
-        if($('.wfacp_product_switcher_container').length) {
-            $(".product-checkout-choose.mobile").show();
-            $(".product-checkout-choose.mobile").html($(".wfacp_product_switcher.wfacp_product_switcher"));
-        } else {
-            $(".product-checkout-choose").hide();
-        }
-
-        $("#wc-stripe-payment-request-wrapper").insertAfter("#shortcode-mini-cart");
-        $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
-
-    } else  {
-        $(".checkout-mob").hide();
-
-        if($('.wfacp_product_switcher_container').length) {
-            $(".product-checkout-choose.desktop").show();
-            $(".product-checkout-choose.desktop").html($(".wfacp_product_switcher.wfacp_product_switcher"));
-        } else {
-            $(".product-checkout-choose").hide();
-        }
-        $("#wc-stripe-payment-request-wrapper").insertBefore("#wc-stripe-payment-request-button-separator");
-        $("#wc-stripe-payment-request-button-separator").insertBefore(".wfacp-section.wfacp_payment");
-    }
-})
 $(document.body).on('updated_checkout', function () {
     $(".wfacp_internal_form_wrap.wfacp-comm-title.none.margin-top h2").text("Order Summary");
     $(".wfacp-order-summary-label").text("Order Summary");
@@ -146,78 +113,108 @@ $(document.body).on('updated_checkout', function () {
         $(this).closest('.wfob_l3_s_c').addClass('active-bump-header');
     }
     })
-    
+    $("#place_order").text("CLICK TO CONTINUE");
   
 });
-if ($(window).width() < 1024) {
-        $("#checkout-timer").insertBefore("#shortcode-checkout");
-        $("#product-perks").insertAfter(".product-checkout-choose.mobile");
-
-        $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertAfter("#product-perks");
-        $("#shortcode-mini-cart").insertAfter(".wfob_bump_wrapper.woocommerce_before_checkout_form");
-		/* PRESTAVI GOOGLE/APPLE PAY POD MINI CART < 768PX */
-        $("#wc-stripe-payment-request-wrapper").insertAfter("#shortcode-mini-cart");
-        $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
-	}
-	
-else {
-        $(".product-checkout-choose.desktop").insertAfter(".wfacp-hg-by-box.step_0");
-        $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertAfter("#shortcode-mini-cart");
-        /* PRESTAVI GOOGLE/APPLE PAY POD BUY BUTTON > 767PX */
-		$("#wc-stripe-payment-request-wrapper").insertBefore(".wfacp-section.wfacp_payment");
-        $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
-
-       
-	}
-    $(document).ready(function() {
-        $(window).resize(function() {
+$(document).ready(function() {
+    $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertAfter("#product-perks");
+    $(".wfacp-order-summary-label").text("Order Summary");
+    $("#wfacp_mini_cart_reviews_wfacp_form_summary_shortcode").insertAfter("#wfacp_mini_cart_items_wfacp_form_summary_shortcode");
+  
     if ($(window).width() < 1024) {
-        $(".checkout-mob").hide();
-        
-        $("#checkout-timer").insertBefore("#shortcode-checkout");
-        $("#product-perks").insertAfter(".product-checkout-choose.mobile");
-    
-        $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertAfter("#product-perks");
-        $("#shortcode-mini-cart").insertAfter(".wfob_bump_wrapper.woocommerce_before_checkout_form");
-      
-		/* PRESTAVI GOOGLE/APPLE PAY POD MINI CART < 768PX */
+        if($('.wfacp_product_switcher_container').length) {
+            $(".product-checkout-choose.mobile").show();
+            $(".product-checkout-choose.mobile").html($(".wfacp_product_switcher.wfacp_product_switcher"));
+        } else {
+            $(".product-checkout-choose").hide();
+        }
         $("#wc-stripe-payment-request-wrapper").insertAfter("#shortcode-mini-cart");
         $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
 
-        $("#testimonial").insertBefore("#faq");
-       
-         if($('.wfacp_product_switcher_container').length) {
-                $(".product-checkout-choose.mobile").show();
-                $(".product-checkout-choose.mobile").html($(".wfacp_product_switcher.wfacp_product_switcher"));
-            } else {
-                $(".product-checkout-choose").hide();
-            }
-	}
-	
-	else  {
+    } else  {
+        if($('.wfacp_product_switcher_container').length) {
+            $(".product-checkout-choose.desktop").show();
+            $(".product-checkout-choose.desktop").html($(".wfacp_product_switcher.wfacp_product_switcher"));
+        } else {
+            $(".product-checkout-choose").hide();
+        }
 
-        $(".checkout-mob").hide();
-        $(".product-checkout-choose.desktop").insertAfter(".wfacp-hg-by-box.step_0");
+   
+        $("#wc-stripe-payment-request-wrapper").insertBefore("#wc-stripe-payment-request-button-separator");
+        $("#wc-stripe-payment-request-button-separator").insertBefore(".wfacp-section.wfacp_payment");
+    }
+})
 
-        $("#checkout-timer").insertAfter("#head-logo");
-        $("#product-perks").insertBefore("#shortcode-mini-cart");
-		/* PRESTAVI GOOGLE/APPLE PAY POD BUY BUTTON > 767PX */
-        $("#wc-stripe-payment-request-wrapper").insertBefore(".wfacp-section.wfacp_payment");
-        $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
+if ($(window).width() < 1024) {
+    
+    $("#product-perks").insertAfter(".product-checkout-choose.mobile");
 
-        $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertAfter("#shortcode-mini-cart");
-		
-		/* PRESTAVI BUMPE POD TIMER > 767PX */
-        $(".product-checkout-choose.desktop").insertAfter(".wfacp-hg-by-box.step_0");
+
+    $("#shortcode-mini-cart").insertAfter(".wfob_bump_wrapper.woocommerce_before_checkout_form");
+    /* PRESTAVI GOOGLE/APPLE PAY POD MINI CART < 768PX */
+    $("#wc-stripe-payment-request-wrapper").insertAfter("#shortcode-mini-cart");
+    $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
+    
+} else {
+
+   // $("#shortcode-mini-cart").insertBefore("#wc-stripe-payment-request-wrapper");
+    $(".product-checkout-choose.desktop").insertAfter(".wfacp-hg-by-box.step_0");
+    $("#shortcode-mini-cart").insertAfter(".product-checkout-choose.desktop");
+    /* PRESTAVI GOOGLE/APPLE PAY POD BUY BUTTON > 767PX */
+    $("#wc-stripe-payment-request-wrapper").insertBefore(".wfacp-section.wfacp_payment");
+    $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
+   
+
+}
+    $(document).ready(function() {
+    $(window).resize(function() {
+        if ($(window).width() < 1024) {
+        
+            $("#product-perks").insertAfter(".product-checkout-choose.mobile");
+        
+            $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertAfter("#product-perks");
+            $("#shortcode-mini-cart").insertAfter(".wfob_bump_wrapper.woocommerce_before_checkout_form");
+        
+            /* PRESTAVI GOOGLE/APPLE PAY POD MINI CART < 768PX */
+            $("#wc-stripe-payment-request-wrapper").insertAfter("#shortcode-mini-cart");
+            $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
+
+            $("#testimonial").insertBefore("#faq");
+        
+            if($('.wfacp_product_switcher_container').length) {
+                    $(".product-checkout-choose.mobile").show();
+                    $(".product-checkout-choose.mobile").html($(".wfacp_product_switcher.wfacp_product_switcher"));
+                } else {
+                    $(".product-checkout-choose").hide();
+                }
+        } else  {
+
+            $("#right-checkout").append($("#product-perks"));
+            $(".product-checkout-choose.desktop").insertAfter(".wfacp-hg-by-box.step_0");
+
+          
+            //$("#shortcode-mini-cart").insertBefore("#wc-stripe-payment-request-wrapper");
+            $("#shortcode-mini-cart").insertAfter(".product-checkout-choose.desktop");
+
+            /* PRESTAVI GOOGLE/APPLE PAY POD BUY BUTTON > 767PX */
+            $("#wc-stripe-payment-request-wrapper").insertBefore(".wfacp-section.wfacp_payment");
+            $("#wc-stripe-payment-request-button-separator").insertAfter("#wc-stripe-payment-request-wrapper");
+
+          
+            $(".wfob_bump_wrapper.woocommerce_before_checkout_form").insertAfter("#product-perks");
             if($('.wfacp_product_switcher_container').length) {
                 $(".product-checkout-choose.desktop").show();
                 $(".product-checkout-choose.desktop").html($(".wfacp_product_switcher.wfacp_product_switcher"));
             } else {
                 $(".product-checkout-choose").hide();
             }
-	}
+        }
   });
 })
+$(document.body).on('checkout_error', function () {
+    $('.woocommerce-invalid-required-field').addClass('showErrors');
+});
+
 
 </script>
 

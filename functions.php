@@ -864,13 +864,21 @@ function change_button_text($button_text) {
 	$button_text = 'GET INSTANT ACCESS';
 	return  $button_text;
 }
-
-/** CHANGE ORDER BUTTON ON DYNAMIC CHECKOUT TEMPLATE */
-add_action( 'woocommerce_checkout_after_customer_details', 'second_place_order_button', 5 );
-function second_place_order_button() {
-    echo '<button type="submit" class="button alt new_order_button" 
-	name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">CLICK TO CONTINUE</button>';
+add_filter('woocommerce_order_button_text', 'dynamic_checkout_order_button', 999999);
+function dynamic_checkout_order_button($btn_text) {	
+	if (get_page_template() == (get_stylesheet_directory() . '/resources/views/template-dynamic_checkout.blade.php')) {
+		$btn_text = 'CLICK TO CONTINUE';
+	}
+	
+	return  $btn_text;
 }
+
+// /** CHANGE ORDER BUTTON ON DYNAMIC CHECKOUT TEMPLATE */
+// add_action( 'woocommerce_checkout_after_customer_details', 'second_place_order_button', 5 );
+// function second_place_order_button() {
+//     echo '<button type="submit" class="button alt new_order_button" 
+// 	name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">CLICK TO CONTINUE</button>';
+// }
 
 // rename the "Have a Coupon?" message on the checkout page
 function woocommerce_rename_coupon_message_on_checkout() {
@@ -1059,4 +1067,3 @@ function add_credit_card_gateway_icons( $icon_string, $gateway_id ) {
 }
 
 add_filter( 'woocommerce_gateway_icon', 'add_credit_card_gateway_icons', 10, 2 );
-
