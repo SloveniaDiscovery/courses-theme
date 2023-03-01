@@ -404,3 +404,131 @@ function cd_customizer_css()
 	</style>
 <?php
 }
+
+
+/**
+ * Removes buttons from the first row of the tiny mce editor
+ *
+ * @link     http://thestizmedia.com/remove-buttons-items-wordpress-tinymce-editor/
+ *
+ * @param    array    $buttons    The default array of buttons
+ * @return   array                The updated array of buttons that exludes some items
+ */
+add_filter( 'mce_buttons', 'jivedig_remove_tiny_mce_buttons_from_editor');
+function jivedig_remove_tiny_mce_buttons_from_editor( $buttons ) {
+
+    $remove_buttons = array(
+		'readmore',
+        'spellchecker',
+        'dfw', // distraction free writing mode
+        'wp_adv', // kitchen sink toggle (if removed, kitchen sink will always display)
+    );
+    foreach ( $buttons as $button_key => $button_value ) {
+        if ( in_array( $button_value, $remove_buttons ) ) {
+            unset( $buttons[ $button_key ] );
+        }
+    }
+    return $buttons;
+}
+
+/**
+ * Removes buttons from the second row (kitchen sink) of the tiny mce editor
+ *
+ * @link     http://thestizmedia.com/remove-buttons-items-wordpress-tinymce-editor/
+ *
+ * @param    array    $buttons    The default array of buttons in the kitchen sink
+ * @return   array                The updated array of buttons that exludes some items
+ */
+add_filter( 'mce_buttons_2', 'jivedig_remove_tiny_mce_buttons_from_kitchen_sink');
+function jivedig_remove_tiny_mce_buttons_from_kitchen_sink( $buttons ) {
+
+    $remove_buttons = array(
+        'formatselect', // format dropdown menu for <p>, headings, etc
+        'pastetext', // paste as text
+        'removeformat', // clear formatting
+        'charmap', // special characters
+        'outdent',
+        'indent',
+        'undo',
+        'redo',
+        'wp_help', // keyboard shortcuts
+		'hr'
+    );
+    foreach ( $buttons as $button_key => $button_value ) {
+        if ( in_array( $button_value, $remove_buttons ) ) {
+            unset( $buttons[ $button_key ] );
+        }
+    }
+    return $buttons;
+}
+/**
+ * Remove the Color Picker plugin from tinyMCE. This will
+ * prevent users from adding custom colors. Note, the default color
+ * palette is still available (and customizable by developers) via
+ * textcolor_map using the tiny_mce_before_init hook.
+ * 
+ * @param array $plugins An array of default TinyMCE plugins.
+ */
+add_filter( 'tiny_mce_plugins', 'wpse_tiny_mce_remove_custom_colors' );
+function wpse_tiny_mce_remove_custom_colors( $plugins ) {       
+
+    foreach ( $plugins as $key => $plugin_name ) {
+        if ( 'colorpicker' === $plugin_name ) {
+            unset( $plugins[ $key ] );
+            return $plugins;            
+        }
+    }
+
+    return $plugins;            
+}
+function my_mce4_options($init) {
+
+    $custom_colours = '
+        "131313", "Dark Gray",
+        "D20000", "Dark Red",
+    ';
+
+    // build colour grid default+custom colors
+    $init['textcolor_map'] = '['.$custom_colours.']';
+
+    // change the number of rows in the grid if the number of colors changes
+    // 8 swatches per row
+    $init['textcolor_rows'] = 1;
+
+    return $init;
+}
+add_filter('tiny_mce_before_init', 'my_mce4_options');
+
+/** ADD CUSTOM TEXT FORMATS TO WYSIWYG EDITOR */
+add_filter('tiny_mce_before_init', function($init_array) {
+    $init_array['formats'] = json_encode([
+        // add new format to formats
+        'paragraphSmall' => [
+            'selector' => 'p',
+            'block'    => 'p',
+            'classes'  => 'small-paragraph',
+        ],
+		'subHeading' => [
+            'selector' => 'h2',
+            'block'    => 'h2',
+            'classes'  => 'sub-heading',
+        ],
+    ], JSON_THROW_ON_ERROR);
+
+    // remove from that array not needed formats
+    $block_formats = [
+        'Paragraph=p',
+		'Paragraph small=paragraphSmall',    // use the new format in select
+        'Heading 1=h1',
+        'Heading 2=h2',
+		'Sub Heading 2=subHeading',
+        'Heading 3=h3',
+        'Heading 4=h4',
+        'Heading 5=h5',
+        'Heading 6=h6',
+        'Preformatted=pre',
+    ];
+    $init_array['block_formats'] = implode(';', $block_formats);
+
+    return $init_array;
+});
