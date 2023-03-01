@@ -464,9 +464,9 @@ display:none;
 			display: none;
 		}
 
-		.wfacp_woocommerce_form_coupon{
+		/* .wfacp_woocommerce_form_coupon{
 			display: none;
-		}
+		} */
 		.cart-subtotal {
 			display: none;
 		}

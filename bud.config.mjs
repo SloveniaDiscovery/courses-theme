@@ -35,7 +35,7 @@ export default async (app) => {
     /**
      * Proxy origin (`WP_HOME`)
      */
-    .proxy("http://strategicparenting.test")
+    .proxy("http://localhost:10004/")
 
     /**
      * Development origin
