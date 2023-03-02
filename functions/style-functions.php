@@ -1274,6 +1274,9 @@ display:none;
 		.dynamic-checkout .wfacp_single_step_form > .wfacp_custom_row_wrap {
 			display: none !important;
 		}
+		body .select2-selection__placeholder {
+			display: none;
+		}
 	</style>
 	<?php
 });
