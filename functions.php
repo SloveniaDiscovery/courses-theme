@@ -943,3 +943,56 @@ function add_credit_card_gateway_icons( $icon_string, $gateway_id ) {
 }
 
 add_filter( 'woocommerce_gateway_icon', 'add_credit_card_gateway_icons', 10, 2 );
+
+// Show state field on checkout only if country is US
+add_action( 'woocommerce_checkout_before_customer_details',  'state_field_checkout' );
+function state_field_checkout() {
+    ?>
+    <style>#shipping_state_field.hidden{display:none;}</style>
+    <?php
+    $country = WC()->customer->get_shipping_country();
+    $class = 'validate-state';
+
+    // Hidden if not United States or empty
+    if( empty($country) || $country != 'US' )
+        $class .= ' hidden';
+
+  
+}
+
+// The jQuery code to show / hide the state field
+add_action( 'wp_footer', 'checkout_country_script' );
+function checkout_country_script() {
+    // Only checkout page
+    if( is_checkout() && ! is_wc_endpoint_url() ):
+    ?>
+
+    <script type="text/javascript">
+	
+    jQuery(function($){
+        var sn = '#shipping_state_field',
+            sc = 'select#shipping_country';
+           
+	function showHideState(t){
+            if( $(t).val() != 'US' || $(t).val() == undefined ){
+                $(sn).hide( function(){
+                    $(this).removeClass('hidden');
+                });
+            } else {
+                $(sn).hide( 'fast', function(){
+                    if( ! $(this).hasClass('hidden') )
+                        $(this).addClass('hidden');
+                    $(sn).show();
+
+                });
+            }
+        }
+        //  Shipping country change
+        $(sc).on('change',function(){
+			showHideState(sc);
+        });
+    });
+    </script>
+    <?php
+    endif;
+}
