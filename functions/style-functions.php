@@ -1085,7 +1085,7 @@ display:none;
 				width: 160px;
 			}
 		}
-		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 p {
+		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 p, .dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 li {
 			font-size: 14px !important;
 			font-weight: 400 !important;
 		}
