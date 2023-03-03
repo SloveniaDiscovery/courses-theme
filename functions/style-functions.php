@@ -899,7 +899,7 @@ display:none;
 		.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item {
 			border: 1px solid #ddd;
 		}
-		.dynamic-checkout .woocommerce-cart-form__cart-item.cart_item .wfacp_switcher_checkbox {
+		/* .dynamic-checkout .woocommerce-cart-form__cart-item.cart_item .wfacp_switcher_checkbox {
 			height: 25px !important;
 			width: 25px !important;
 			position: relative !important;
@@ -912,7 +912,7 @@ display:none;
 			height: 25px !important;
 			font-size: 19px !important;
 			margin-left: 2px !important;
-		}
+		} */
 		.dynamic-checkout .wfacp_product_switcher_col.wfacp_product_switcher_col_1  {
 			position: absolute;
 			left: 0;
