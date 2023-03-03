@@ -1006,6 +1006,7 @@ display:none;
 		}
 
 		/**BUMP LAYOUT-3 STYLE - BUTTON ONLY, DYNAMIC CHECKOUT */
+		
 		.dynamic-checkout .wfob_bump_wrapper .wfob_wrap_start {
 			margin-bottom: 40px !important;
 		}
@@ -1084,6 +1085,10 @@ display:none;
 			.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 .wfob_l3_s_img img {
 				width: 160px;
 			}
+		}
+		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 li {
+			list-style-type: disc !important;
+			text-indent: 0px !important;
 		}
 		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 p, .dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 li {
 			font-size: 14px !important;
