@@ -1090,6 +1090,20 @@ display:none;
 			list-style-type: disc !important;
 			text-indent: 0px !important;
 		}
+		.dynamic-checkout .wfacp_main_form #product_switching_field .wfacp_best_value {
+			text-transform: capitalize;
+			font-weight: 400;
+			color: #fff;
+			background-color: #b22323;
+			font-size: 12px;
+			line-height: 12px;
+			display: inline-block;
+			padding: 3px 5px;
+			border-radius: 3px;
+		}
+		.dynamic-checkout #wfacp-e-form .wfacp_main_form .shop_table.wfacp-product-switch-panel .woocommerce-cart-form__cart-item.cart_item.wfacp_best_val_wrap {
+			border-color: #b22323;
+		}
 		.dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 p, .dynamic-checkout .wfob_bump_r_outer_wrap.wfob_layout_3 li {
 			font-size: 14px !important;
 			font-weight: 400 !important;
