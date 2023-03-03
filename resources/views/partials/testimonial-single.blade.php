@@ -7,10 +7,10 @@ $testimonial_headline = get_field('testimonial_headline', $testimonial);
 $testimonial_style = get_field('testimonial_style', $testimonial);
 $testimonial_link = get_field('testimonial_link', $testimonial);
 ?>
-<!-- SINGLE TESTIMONIAL VIEW - CARDS-->
+
 
 @if((is_page_template( 'template-dynamic_checkout.blade.php' ) ))
-<div class="inline-flex bg-white mb-5 rounded-md">
+<div class="bg-white mb-5 rounded-md">
 @else
 <div class=" bg-white">
   @endif
