@@ -6,5 +6,3 @@
 @include('sections.top-bar-sales-white')
 
 @include('blocks.flexible-page')
-
-@include('sections.footer')
