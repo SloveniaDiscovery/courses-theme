@@ -3710,6 +3710,20 @@ li:has(> .gift-bullet)::before {
   overflow-y: hidden;
 }
 
+/*BREADCRUMBS */
+
+.breadcrumb li {
+  padding-left: 0px !important;
+}
+
+.breadcrumb li a {
+  font-size: 12px !important;
+}
+
+.breadcrumb-item:not([class*="active"]) a {
+  color: #ff8f00 !important;
+}
+
 .hover\:border-b-0:hover {
   border-bottom-width: 0px;
 }
