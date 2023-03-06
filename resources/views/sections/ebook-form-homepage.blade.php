@@ -11,9 +11,9 @@
                 <p class="!mb-0 text-darkOrange font-semibold">
                     @sub('form_subtitle')
                 </p>
-                <h1 class="font-bold mt-3">
+                <h2 class="font-bold mt-3">
                     @sub('form_title')
-                </h1>
+                </h2>
                 <p class="text-black font-normal md:text-xl text-base mt-3 mb-4">
                     @sub('form_content')
                 </p>
