@@ -3716,7 +3716,7 @@ li:has(> .gift-bullet)::before {
   padding-left: 0px !important;
 }
 
-.breadcrumb li a {
+.breadcrumb li a, .breadcrumb li span {
   font-size: 12px !important;
 }
 

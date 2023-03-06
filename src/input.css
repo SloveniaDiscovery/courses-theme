@@ -1942,7 +1942,7 @@ li:has(> .gift-bullet)::before {
 .breadcrumb li {
   padding-left: 0px !important;
 }
-.breadcrumb li a {
+.breadcrumb li a, .breadcrumb li span {
   font-size: 12px !important;
 }
 .breadcrumb-item:not([class*="active"]) a {
