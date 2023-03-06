@@ -23,5 +23,16 @@
 @include('partials.ebook-form')
 @endlayouts
 
-@endif
+
+@else 
+
+@section('content')
+@include('sections.content-page')
 @include('sections.footer')
+@endsection
+
+@endif
+
+@section('content')
+@include('sections.footer')
+@endsection

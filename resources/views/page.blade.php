@@ -19,14 +19,13 @@
     @include('partials.products-homepage')
 
 </section>
+@section('content')
 @include('sections.footer')
+@endsection
 @else 
 
 @include('blocks.flexible-page')
 
-@section('content')
-@include('sections.content-page')
-@endsection
 
 @endif
 
