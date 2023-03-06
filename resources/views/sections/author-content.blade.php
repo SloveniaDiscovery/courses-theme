@@ -34,7 +34,7 @@
 <section class="flex w-full h-auto md:h-[60vh] items-start flex-col md:flex-row">
   <div class="w-full md:w-1/2 flex justify-end items-center h-[45vh] relative">
 
-  @hassub('image')
+    @hassub('image')
     <img class="h-[35vh] md:h-full md:mr-16 m-auto z-10" src="@sub('image', 'url')"></img>
     @endsub
   
