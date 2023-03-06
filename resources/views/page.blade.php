@@ -4,6 +4,8 @@
 
 @include('sections.header')
 @include('partials.page-banner')
+<?php if(function_exists('seopress_display_breadcrumbs')) { seopress_display_breadcrumbs(); } ?>
+
 <section class="container max-w-pageWidth mt-20 mb-12 justify-center">
 
     @layouts('page_section')
