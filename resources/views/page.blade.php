@@ -24,7 +24,6 @@
 @section('content')
 @include('sections.content-page')
 @endsection
-@include('sections.footer')
 
 @endif
 
