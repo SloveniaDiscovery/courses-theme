@@ -16,7 +16,8 @@
             $title = $product->get_title();
             $format_number1 = number_format($price_total, 0);
             $price  = $product->get_price();
-            echo "Today " . "<span class='font-bold text-black'>" . date("d.m.Y"). "</span>" . "  we are offering you a " . "<span class='font-bold text-black'>" . $format_number1 . "% " . "</span>" . "discount. Take advantage of this offer before time runs out.";
+
+            echo "Today " . "<span class='font-bold text-black green-box-time'></span>" . "  we are offering you a " . "<span class='font-bold text-black'>" . $format_number1 . "% " . "</span>" . "discount. Take advantage of this offer before time runs out.";
             ?>
         </p>
         <div class="mb-4 inline sm:flex">
@@ -57,3 +58,5 @@
     </div>
     
 </section>
+
+

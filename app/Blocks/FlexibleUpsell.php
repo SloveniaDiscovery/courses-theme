@@ -113,8 +113,7 @@ class FlexibleUpsell extends Block {
                 ->addLayout('guarantee_section')
                     ->addText('guarantee_text')
                 ->addLayout('green_box')
-                     ->addLayout('heading')
-                        ->addWysiwyg('heading')
+                    ->addWysiwyg('heading')
                     ->addText('no_thanks_green_box')
                 ->addLayout('testimonials')
                     ->addPostObject('testimonials', [

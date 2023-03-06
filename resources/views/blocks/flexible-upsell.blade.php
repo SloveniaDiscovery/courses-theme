@@ -58,3 +58,23 @@
         </section>
     @endlayout
 @endlayouts
+
+
+<script>
+function join(t, a, s) {
+   function format(m) {
+      let f = new Intl.DateTimeFormat('en', m);
+      return f.format(t);
+   }
+   return a.map(format).join(s);
+}
+
+let a = [{day: '2-digit'}, {month: '2-digit'}, {year: 'numeric'}];
+let s = join(new Date, a, '.');
+
+const today = document.querySelectorAll('.green-box-time');
+for (let i = 0; i < today.length; i++) {
+    today[i].innerHTML = s;
+}
+
+</script>
