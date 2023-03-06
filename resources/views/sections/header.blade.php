@@ -1,7 +1,7 @@
 @include('partials.ebook-top-bar')
-<header class="banner w-full relative">
+<header class="banner w-full relative shadow-[0px_8px_16px_rgb(0,0,0,8%)]">
   <div class="container max-w-pageWidth mx-auto flex items-center py-4 lg:!py-0">
-    <img class="h-10 no-lazyload flex" src="{{$logoColor}}"></img>
+    <a href="<?php echo get_site_url(); ?>"><img class="h-10 no-lazyload flex" src="{{$logoColor}}"></img></a>
     @if (has_nav_menu('primary_navigation'))
       <nav role="navigation" id="menuToggle" class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
         <input type="checkbox" />

@@ -1834,6 +1834,12 @@ h2.sub-heading {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-\[0px_8px_16px_rgb\(0\2c 0\2c 0\2c 8\%\)\] {
+  --tw-shadow: 0px 8px 16px rgb(0,0,0,8%);
+  --tw-shadow-colored: 0px 8px 16px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -3716,7 +3722,7 @@ li:has(> .gift-bullet)::before {
   padding-left: 0px !important;
 }
 
-.breadcrumb li a, .breadcrumb li span {
+.breadcrumb li a, .breadcrumb li span, .breadcrumb li::after {
   font-size: 12px !important;
 }
 
