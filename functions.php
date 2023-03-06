@@ -996,3 +996,30 @@ function checkout_country_script() {
     <?php
     endif;
 }
+
+
+/** SUB MENU IN HEADER ON HOME PAGE, WHERE LISTED ALL SALES PAGES/ PRODUCTS */
+add_filter( 'wp_get_nav_menu_items', 'my_theme_doctors_menu_filter', 10, 3 );
+
+function my_theme_doctors_menu_filter( $items, $menu, $args ) {
+  $child_items = array(); 
+  $menu_order = count($items); 
+  $parent_item_id = $items[0]->ID; //get first menu item ID -> for dropdown menu
+
+
+  if($parent_item_id > 0){
+      foreach ( get_posts( 'post_type=wffn_optin&category_name=homepage&numberposts=-1&order=DESC' ) as $post ) {
+        $post->menu_item_parent = $parent_item_id;
+        $post->post_type = 'nav_menu_item';
+        $post->object = 'sales-page';
+        $post->type = 'page';
+        $post->menu_order = ++$menu_order;
+        $post->title = $post->post_title;
+        $post->url = get_permalink( $post->ID );
+        array_push($child_items, $post);
+      }
+
+  }
+
+  return array_merge( $items, $child_items );
+}

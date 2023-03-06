@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@include('sections.top-bar-sales-white')
+@include('sections.header')
 
 @include('blocks.flexible-homepage')
 
