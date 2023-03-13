@@ -1964,5 +1964,8 @@ li:has(> .gift-bullet)::before {
 
 .wffn_landing-template-default p, .wffn_landing-template-default li {
   font-size: 24px !important;
-  line-height: 28px !important;
+  line-height: 30px !important;
+}
+.wffn_landing-template-default #product-includes > ul > li {
+  font-size: 24px !important;
 }
