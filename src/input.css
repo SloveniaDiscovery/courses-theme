@@ -1956,7 +1956,7 @@ li:has(> .gift-bullet)::before {
 }
 .wffn_landing-template-default .sub-heading {
   font-size: 32px !important;
-  line-height: 40px !important;
+  line-height: 48px !important;
 }
 .wffn_landing-template-default h3 {
   font-size: 48px !important;
@@ -1965,7 +1965,7 @@ li:has(> .gift-bullet)::before {
 
 .wffn_landing-template-default p, .wffn_landing-template-default li {
   font-size: 24px !important;
-  line-height: 32px !important;
+  line-height: 36px !important;
 }
 .wffn_landing-template-default section.testimonials p {
   font-size: 20px !important;
