@@ -897,6 +897,7 @@ li {
 
 #product-includes > ul > li {
   font-size: 16px !important;
+  line-height: 24px !important;
 }
 #product-includes {
   max-width: 91%;
@@ -1966,7 +1967,7 @@ li:has(> .gift-bullet)::before {
   font-size: 24px !important;
   line-height: 32px !important;
 }
-.wffn_landing-template-default #product-includes > ul > li {
-  font-size: 24px !important;
-  line-height: 32px !important;
+.wffn_landing-template-default section:not(.testimonials) p {
+  font-size: 20px !important;
+  line-height: 28px !important;
 }

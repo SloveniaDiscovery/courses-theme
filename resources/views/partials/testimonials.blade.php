@@ -16,7 +16,7 @@
         </div>
     </div>
     @else
-    <section class="mx-auto max-w-contentwidth">
+    <section class="mx-auto max-w-contentwidth testimonials">
     <div class="mt-12">
         @if(get_post_type() === 'wffn_landing' || get_post_type() === 'wfocu_offer' || get_post_type() === 'page' || get_post_type() === 'wffn_optin')
         <div class=" md:gap-4 md:columns-2 columns-1 gap-2">
