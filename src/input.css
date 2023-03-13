@@ -1967,7 +1967,7 @@ li:has(> .gift-bullet)::before {
   font-size: 24px !important;
   line-height: 36px !important;
 }
-.wffn_landing-template-default section.testimonials p {
+.wffn_landing-template-default section.testimonials p, .wffn_landing-template-default .yellow-box p, .wffn_landing-template-default .yellow-box li {
   font-size: 20px !important;
   line-height: 28px !important;
 }
