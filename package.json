@@ -5,7 +5,7 @@
     "extends @roots/browserslist-config/current"
   ],
   "engines": {
-    "node": "16.14.0"
+    "node": "^16.14.0"
   },
   "scripts": {
     "dev": "bud dev",
