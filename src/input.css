@@ -1948,3 +1948,20 @@ li:has(> .gift-bullet)::before {
 .breadcrumb-item:not([class*="active"]) a {
   color: #ff8f00 !important;
 }
+.wffn_landing-template-default h1 {
+  font-size: 56px !important;
+  line-height: 58px !important;
+}
+.wffn_landing-template-default .sub-heading {
+  font-size: 32px !important;
+  line-height: 38px !important;
+}
+.wffn_landing-template-default h3 {
+  font-size: 48px !important;
+  line-height: 52px !important;
+}
+
+.wffn_landing-template-default p, .wffn_landing-template-default li {
+  font-size: 24px !important;
+  line-height: 28px !important;
+}
