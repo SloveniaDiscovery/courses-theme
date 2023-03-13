@@ -8,7 +8,7 @@
                 @sub('top_bar_text')
                 @include('partials.countdown-sales')   
             </div>
-            <button class="leading-[1.2] hover:bg-hover bg-greenColor p-2 pl-4 pr-4 rounded-full text-white text-base ml-4 h-fit md:h-auto uppercase" onclick="toggleModal('modal-id')">
+            <button class="leading-[1.2] hover:bg-[#039d00] bg-greenColor p-2 pl-4 pr-4 rounded-full text-white text-base ml-4 h-fit md:h-auto uppercase" onclick="toggleModal('modal-id')">
                 @sub('top_bar_button_text')
             </button>
         </div>
