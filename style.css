@@ -3758,12 +3758,44 @@ li:has(> .gift-bullet)::before {
   line-height: 28px !important;
 }
 
+@media(max-width: 992px) {
+  .wffn_landing-template-default h1 {
+    font-size: 36px !important;
+    line-height: 48px !important;
+  }
+
+  .wffn_landing-template-default .sub-heading {
+    font-size: 24px !important;
+    line-height: 32px !important;
+  }
+
+  .wffn_landing-template-default h3 {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+
+  .wffn_landing-template-default p, .wffn_landing-template-default li {
+    font-size: 20px !important;
+    line-height: 32px !important;
+  }
+
+  .wffn_landing-template-default section.testimonials p, .wffn_landing-template-default .yellow-box p, .wffn_landing-template-default .yellow-box li {
+    font-size: 16px !important;
+    line-height: 20px !important;
+  }
+}
+
 .hover\:border-b-0:hover {
   border-bottom-width: 0px;
 }
 
 .hover\:border-hover:hover {
   border-color: var(--hover);
+}
+
+.hover\:bg-\[\#039d00\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 157 0 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-black:hover {
@@ -3782,11 +3814,6 @@ li:has(> .gift-bullet)::before {
 
 .hover\:bg-hoverOrange:hover {
   background-color: var(--hoverOrange);
-}
-
-.hover\:bg-\[\#039d00\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(3 157 0 / var(--tw-bg-opacity));
 }
 
 .hover\:font-semibold:hover {
